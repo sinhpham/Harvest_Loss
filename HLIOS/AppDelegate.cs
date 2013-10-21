@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.SlideoutNavigation;
 using MonoTouch.Dialog;
+using HLIOSCore;
 
 namespace HLIOS
 {
@@ -29,6 +30,8 @@ namespace HLIOS
         {
             // create a new window instance based on the screen size
             window = new UIWindow(UIScreen.MainScreen.Bounds);
+
+            HLDatabase.CreateDummyData();
 
             MainScreen = new SlideoutNavigationController();
             MainScreen.TopView = new CalcDVC();

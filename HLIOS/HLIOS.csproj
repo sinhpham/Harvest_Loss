@@ -107,6 +107,10 @@
       <Project>{6D7B9B53-CFEF-46BE-A608-14A4A1381CF6}</Project>
       <Name>MonoTouch.SlideoutNavigation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Core\HLIOSCore.csproj">
+      <Project>{1633EFEB-12E9-4F4C-96D7-EAC05A868931}</Project>
+      <Name>HLIOSCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />

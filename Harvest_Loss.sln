@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HLIOS", "HLIOS\HLIOS.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoTouch.SlideoutNavigation", "MonoTouch.SlideoutNavigation\MonoTouch.SlideoutNavigation.csproj", "{6D7B9B53-CFEF-46BE-A608-14A4A1381CF6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FFF31631-6364-46DA-9B25-D78F67F1659E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HLIOSCore", "Core\HLIOSCore.csproj", "{1633EFEB-12E9-4F4C-96D7-EAC05A868931}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -15,6 +19,18 @@ Global
 		AppStore|iPhone = AppStore|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.AppStore|iPhone.Build.0 = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Release|iPhone.Build.0 = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{6D7B9B53-CFEF-46BE-A608-14A4A1381CF6}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
 		{6D7B9B53-CFEF-46BE-A608-14A4A1381CF6}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{6D7B9B53-CFEF-46BE-A608-14A4A1381CF6}.AppStore|iPhone.ActiveCfg = Release|Any CPU
@@ -39,6 +55,9 @@ Global
 		{C2941D98-E3FB-4B6B-8E25-2E834EFBB5FB}.Release|iPhone.Build.0 = Release|iPhone
 		{C2941D98-E3FB-4B6B-8E25-2E834EFBB5FB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{C2941D98-E3FB-4B6B-8E25-2E834EFBB5FB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1633EFEB-12E9-4F4C-96D7-EAC05A868931} = {FFF31631-6364-46DA-9B25-D78F67F1659E}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = HLIOS\HLIOS.csproj

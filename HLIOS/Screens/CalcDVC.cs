@@ -4,6 +4,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.Dialog;
+using HLIOSCore;
 
 namespace HLIOS
 {
@@ -26,7 +27,7 @@ namespace HLIOS
                 CreateRadioRootEle("Crop", "c",
                                            () =>
                                            {
-                    return new List<string>() { "Alfalfa", "Barley", "Brome Grass" };
+                    return HLDatabase.GetTable<Crop>();
                 },
                 str =>
                 {
