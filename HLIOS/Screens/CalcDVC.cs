@@ -17,19 +17,16 @@ namespace HLIOS
             var sec = new Section()
             {
                 CreateRadioRootEle("Method", "m",
-                                           () =>
+                                   () =>
                 {
                     return new List<string>() { "Weight", "Volume", "Count" };
                 },
-                                           str =>
+                                   str =>
                 {
                 }),
                 CreateRadioRootEle("Crop", "c",
-                                           () =>
-                                           {
-                    return HLDatabase.GetTable<Crop>();
-                },
-                str =>
+                                   () => HLDatabase.GetTable<Crop>(),
+                                   str =>
                 {
                 }),
                 new EntryElement("Cut width", null, null),
@@ -49,7 +46,7 @@ namespace HLIOS
             };
 
 
-            Root.Add(new List<Section>{sec, resSec});
+            Root.Add(new List<Section> { sec, resSec });
 
         }
 
@@ -57,7 +54,7 @@ namespace HLIOS
         {
             var rootEle = new RootElement(caption, new RadioGroup(groupKey, 0));
             rootEle.createOnSelected = new Func<RootElement, UIViewController>(arg =>
-                                                                               {
+            {
                 var reVc = new DialogViewController(arg, true);
 
                 var list = listFunc();
