@@ -63,11 +63,13 @@ namespace HLIOS
                     _currCrop = selected;
                     RefreshResult();
                 }),
+
                 CreateActionEntryElement("Cut width(ft)", (sender, arg) =>
                 {
                     if (!double.TryParse(((EntryElement)sender).Value, out _currCutWidth))
                     {
                         _currCutWidth = -1;
+                        ((EntryElement)sender).Value = null;
                     }
                     RefreshResult();
                 }),
