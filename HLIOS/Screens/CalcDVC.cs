@@ -20,6 +20,7 @@ namespace HLIOS
                 if (!double.TryParse(((EntryElement)sender).Value, out _currSeedLossInput))
                 {
                     _currSeedLossInput = -1;
+                    ((EntryElement)sender).Value = null;
                 }
                 RefreshResult();
             });
@@ -75,6 +76,7 @@ namespace HLIOS
                     if (!double.TryParse(((EntryElement)sender).Value, out _currSieveWidth))
                     {
                         _currSieveWidth = -1;
+                        ((EntryElement)sender).Value = null;
                     }
                     RefreshResult();
                 }),
@@ -83,6 +85,7 @@ namespace HLIOS
                     if (!double.TryParse(((EntryElement)sender).Value, out _currCollectingAreasqft))
                     {
                         _currCollectingAreasqft = -1;
+                        ((EntryElement)sender).Value = null;
                     }
                     RefreshResult();
                 }),
@@ -91,6 +94,7 @@ namespace HLIOS
                     if (!double.TryParse(((EntryElement)sender).Value, out _currExpectedYield))
                     {
                         _currExpectedYield = -1;
+                        ((EntryElement)sender).Value = null;
                     }
                     RefreshResult();
                 }),
@@ -99,6 +103,7 @@ namespace HLIOS
                     if (!double.TryParse(((EntryElement)sender).Value, out _currPrice))
                     {
                         _currPrice = -1;
+                        ((EntryElement)sender).Value = null;
                     }
                     RefreshResult();
                 }),
@@ -141,6 +146,13 @@ namespace HLIOS
 
         void RefreshResult()
         {
+            // Clear all values first.
+            _lpaLbs.Value = null;
+            _lpaBu.Value = null;
+            _percentLoss.Value = null;
+            _lossValue.Value = null;
+            Root.Reload(_resSec, UITableViewRowAnimation.None);
+
             if (_currCutWidth == -1 || _currSieveWidth == -1 || _currSeedLossInput == -1 ||
                 _currCollectingAreasqft == -1 || _currCrop == null)
             {
