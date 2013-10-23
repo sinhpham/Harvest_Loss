@@ -6,6 +6,7 @@ using MonoTouch.UIKit;
 using MonoTouch.SlideoutNavigation;
 using MonoTouch.Dialog;
 using HLIOSCore;
+using System.IO;
 
 namespace HLIOS
 {
@@ -31,7 +32,9 @@ namespace HLIOS
             // create a new window instance based on the screen size
             window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            HLDatabase.CreateDummyData();
+            var dataLines = File.ReadLines("Data/CropData.txt");
+
+            HLDatabase.CreateDummyData(dataLines);
 
             MainScreen = new SlideoutNavigationController();
             MainScreen.TopView = new CalcDVC();
@@ -60,21 +63,12 @@ namespace HLIOS
 
             Root.Add(new Section()
             {
-                new StringElement("Weight", () =>
+                new StringElement("Main", () =>
                 {
 //                    BFCIOSGlobal.ClearAll();
 //                    NavigationController.PushViewController(new CalcDialogController(), true);
                 }),
-                new StringElement("Volume", () =>
-                {
-//                    BFCIOSGlobal.ClearAll();
-//                    NavigationController.PushViewController(new CalcAerialDialog(), true);
-                }),
-                new StringElement("Count", () =>
-                {
-//                    BFCIOSGlobal.ClearAll();
-//                    NavigationController.PushViewController(new CalcOrchardDialog(), true);
-                }),
+
                 new StringElement("Help", () =>
                 {
 //                    NavigationController.PushViewController(new HelpViewController(), true);

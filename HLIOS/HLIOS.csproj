@@ -91,6 +91,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Screens\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -114,5 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Data\CropData.txt">
+      <DeployService-Deploy>True</DeployService-Deploy>
+      <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
+    </BundleResource>
   </ItemGroup>
 </Project>

@@ -42,18 +42,24 @@ namespace HLIOSCore
             return ret;
         }
 
-        public static void CreateDummyData()
+        public static void CreateDummyData(IEnumerable<string> cropData)
         {
             HLDatabase.DropTables();
             HLDatabase.CreateTables();
 
-            var crops = new List<Crop>
-            {
-                new Crop { Name = "Alfalfa", LbsPBushel = 60, BushelPTonne = 36.744, KgPBushel = 27.22, KernelWeight = 2 },
-                new Crop { Name = "Barley", LbsPBushel = 48, BushelPTonne = 45.93, KgPBushel = 21.77, KernelWeight = 40 },
-                new Crop { Name = "Brome Grass", LbsPBushel = 14, BushelPTonne = 157.5, KgPBushel = 6.35, KernelWeight = 4 },
-                new Crop { Name = "Wheat", LbsPBushel = 60, BushelPTonne = 36.744, KgPBushel = 27.22, KernelWeight = 40 },
-            };
+            var crops = new List<Crop>();
+
+            foreach(var line in cropData) {
+                var str = line.Split(new char[] { ',' });
+
+                var currCrop = new Crop {
+                    Name = str[0],
+                    LbsPBushel = double.Parse(str[1]),
+                    BushelPTonne = double.Parse(str[2]),
+                    KgPBushel = double.Parse(str[3]),
+                    KernelWeight = double.Parse(str[4]) };
+                crops.Add(currCrop);
+            }
 
             HLDatabase.AddToDb(crops);
         }
