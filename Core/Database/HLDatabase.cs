@@ -52,6 +52,7 @@ namespace HLIOSCore
                 new Crop { Name = "Alfalfa", LbsPBushel = 60, BushelPTonne = 36.744, KgPBushel = 27.22, KernelWeight = 2 },
                 new Crop { Name = "Barley", LbsPBushel = 48, BushelPTonne = 45.93, KgPBushel = 21.77, KernelWeight = 40 },
                 new Crop { Name = "Brome Grass", LbsPBushel = 14, BushelPTonne = 157.5, KgPBushel = 6.35, KernelWeight = 4 },
+                new Crop { Name = "Wheat", LbsPBushel = 60, BushelPTonne = 36.744, KgPBushel = 27.22, KernelWeight = 40 },
             };
 
             HLDatabase.AddToDb(crops);

@@ -15,16 +15,46 @@ namespace HLIOS
         {
             Root = new RootElement("Harvest Loss");
 
+            var slEle = CreateActionEntryElement("Seed loss (g)", (sender, arg) =>
+            {
+                if (!double.TryParse(((EntryElement)sender).Value, out _currSeedLossInput))
+                {
+                    _currSeedLossInput = -1;
+                }
+                RefreshResult();
+            });
+
+            var selectMethodEle = new RootElement("Method", new RadioGroup("m", 0))
+            {
+                new Section()
+                {
+                    new MyRadioElement(MethodChoice.Weight.ToString(), (sender, arg) =>
+                    {
+                        NavigationController.PopViewControllerAnimated(true);
+                        slEle.Caption = "Seed loss (g)";
+                        _currChoice = MethodChoice.Weight;
+                        RefreshResult();
+                    }),
+                    new MyRadioElement(MethodChoice.Volume.ToString(), (sender, arg) =>
+                    {
+                        NavigationController.PopViewControllerAnimated(true);
+                        slEle.Caption = "Seed loss (ml)";
+                        _currChoice = MethodChoice.Volume;
+                        RefreshResult();
+                    }),
+                    new MyRadioElement(MethodChoice.Count.ToString(), (sender, arg) =>
+                    {
+                        NavigationController.PopViewControllerAnimated(true);
+                        slEle.Caption = "Seed loss (number)";
+                        _currChoice = MethodChoice.Count;
+                        RefreshResult();
+                    }),
+                }
+            };
+
             var sec = new Section("Input")
             {
-                CreateRadioRootEle("Method", "m",
-                                   () =>
-                {
-                    return new List<string>() { "Weight", "Volume", "Count" };
-                },
-                                   str =>
-                {
-                }),
+                selectMethodEle,
                 CreateRadioRootEle("Crop", "c",
                                    () => HLDatabase.GetTable<Crop>(),
                                    selected =>
@@ -72,17 +102,9 @@ namespace HLIOS
                     }
                     RefreshResult();
                 }),
-                CreateActionEntryElement("Seed loss (g)", (sender, arg) =>
-                {
-                    if (!double.TryParse(((EntryElement)sender).Value, out _currSeedLossg))
-                    {
-                        _currSeedLossg = -1;
-                    }
-                    RefreshResult();
-                }),
+                slEle,
             };
 
-            //_lph = new StringElement("Loss per ha (kg)");
             _lpaLbs = new StringElement("Loss per acre (lbs)");
             _lpaBu = new StringElement("Loss per acre (bu)");
             _percentLoss = new StringElement("Loss (%)");
@@ -96,6 +118,14 @@ namespace HLIOS
             Root.Add(new List<Section> { sec, _resSec });
         }
 
+        enum MethodChoice
+        {
+            Weight,
+            Volume,
+            Count
+        }
+
+        MethodChoice _currChoice = MethodChoice.Weight;
         Section _resSec;
         StringElement _lpaLbs;
         StringElement _lpaBu;
@@ -106,21 +136,32 @@ namespace HLIOS
         double _currCollectingAreasqft = -1;
         double _currExpectedYield = -1;
         double _currPrice = -1;
-        double _currSeedLossg = -1;
+        double _currSeedLossInput = -1;
         Crop _currCrop;
 
         void RefreshResult()
         {
-            if (_currCutWidth == -1 || _currSieveWidth == -1 || _currSeedLossg == -1 ||
-                _currCollectingAreasqft == -1)
+            if (_currCutWidth == -1 || _currSieveWidth == -1 || _currSeedLossInput == -1 ||
+                _currCollectingAreasqft == -1 || _currCrop == null)
             {
                 return;
             }
+            var _currSeedLossInG = _currSeedLossInput;
+            if (_currChoice == MethodChoice.Count)
+            {
+                _currSeedLossInG = _currSeedLossInput * _currCrop.KernelWeight / 1000;
+            }
+            else if (_currChoice == MethodChoice.Volume)
+            {
+                _currSeedLossInG = MlToG(_currSeedLossInput, _currCrop.KgPBushel);
+            }
+
+
             var concenFactor = _currCutWidth / InchToFeet(_currSieveWidth);
 
             var collectingAreasi = SquareFeetToMeters(_currCollectingAreasqft);
 
-            var lph = 10 * _currSeedLossg / concenFactor / collectingAreasi;
+            var lph = 10 * _currSeedLossInG / concenFactor / collectingAreasi;
             var lpalbs = KgPHaToLbsPAcre(lph);
 
             Debug.WriteLine("Loss per ha: {0}", lph);
@@ -128,23 +169,21 @@ namespace HLIOS
 
             _lpaLbs.Value = lpalbs.ToString("F");
 
-            if (_currCrop != null)
+
+            var lpabu = lpalbs / _currCrop.LbsPBushel;
+            Debug.WriteLine("Loss per acre bu: {0}", lpabu);
+            _lpaBu.Value = lpabu.ToString("F");
+            if (_currExpectedYield != -1)
             {
-                var lpabu = lpalbs / _currCrop.LbsPBushel;
-                Debug.WriteLine("Loss per acre bu: {0}", lpabu);
-                _lpaBu.Value = lpabu.ToString("F");
-                if (_currExpectedYield != -1)
-                {
-                    var percentLoss = lpabu / _currExpectedYield;
-                    Debug.WriteLine("Percent loss: {0}", percentLoss);
-                    _percentLoss.Value = percentLoss.ToString("P");
-                }
-                if (_currPrice != -1)
-                {
-                    var lossValue = _currPrice * lpabu;
-                    Debug.WriteLine("Loss value: {0}", lossValue);
-                    _lossValue.Value = lossValue.ToString("C");
-                }
+                var percentLoss = lpabu / _currExpectedYield;
+                Debug.WriteLine("Percent loss: {0}", percentLoss);
+                _percentLoss.Value = percentLoss.ToString("P");
+            }
+            if (_currPrice != -1)
+            {
+                var lossValue = _currPrice * lpabu;
+                Debug.WriteLine("Loss value: {0}", lossValue);
+                _lossValue.Value = lossValue.ToString("C");
             }
             Root.Reload(_resSec, UITableViewRowAnimation.None);
         }
@@ -184,6 +223,7 @@ namespace HLIOS
         {
             var ret = new EntryElement(caption, null, null);
             ret.TextAlignment = UITextAlignment.Right;
+            ret.KeyboardType = UIKeyboardType.NumbersAndPunctuation;
             ret.Changed += act;
             return ret;
         }
@@ -202,13 +242,23 @@ namespace HLIOS
         {
             return valueInKgPHa / 1.12;
         }
+
+        static public double MlToG(double valueInMl, double KgPerBu)
+        {
+            var ret = valueInMl * KgPerBu / 36.369;
+            return ret;
+        }
     }
 
     public class MyRadioElement : RadioElement
     {
         public MyRadioElement(string caption):base(caption)
         {
+        }
 
+        public MyRadioElement(string caption, EventHandler<EventArgs> onSelectedAct):base(caption)
+        {
+            OnSelected += onSelectedAct;
         }
 
         public override void Selected(DialogViewController dvc, MonoTouch.UIKit.UITableView tableView, MonoTouch.Foundation.NSIndexPath indexPath)
