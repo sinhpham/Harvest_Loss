@@ -64,7 +64,7 @@ namespace HLIOS
                     RefreshResult();
                 }),
 
-                CreateActionEntryElement("Cut width(ft)", (sender, arg) =>
+                CreateActionEntryElement("Cut width (ft)", (sender, arg) =>
                 {
                     if (!double.TryParse(((EntryElement)sender).Value, out _currCutWidth))
                     {
@@ -73,7 +73,7 @@ namespace HLIOS
                     }
                     RefreshResult();
                 }),
-                CreateActionEntryElement("Sieve width(in)", (sender, arg) =>
+                CreateActionEntryElement("Sieve width (in)", (sender, arg) =>
                 {
                     if (!double.TryParse(((EntryElement)sender).Value, out _currSieveWidth))
                     {
