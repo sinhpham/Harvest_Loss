@@ -47,6 +47,7 @@
     <Compile Include="SQLiteAsync.cs" />
     <Compile Include="Database\HLDatabase.cs" />
     <Compile Include="Business\Business.cs" />
+    <Compile Include="Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

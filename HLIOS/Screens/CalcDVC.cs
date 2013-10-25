@@ -167,16 +167,16 @@ namespace HLIOS
             }
             else if (_currChoice == MethodChoice.Volume)
             {
-                _currSeedLossInG = MlToG(_currSeedLossInput, _currCrop.KgPBushel);
+                _currSeedLossInG = Helper.MlToG(_currSeedLossInput, _currCrop.KgPBushel);
             }
 
 
-            var concenFactor = _currCutWidth / InchToFeet(_currSieveWidth);
+            var concenFactor = _currCutWidth / Helper.InchToFeet(_currSieveWidth);
 
-            var collectingAreasi = SquareFeetToMeters(_currCollectingAreasqft);
+            var collectingAreasi = Helper.SquareFeetToMeters(_currCollectingAreasqft);
 
             var lph = 10 * _currSeedLossInG / concenFactor / collectingAreasi;
-            var lpalbs = KgPHaToLbsPAcre(lph);
+            var lpalbs = Helper.KgPHaToLbsPAcre(lph);
 
             Debug.WriteLine("Loss per ha: {0}", lph);
             Debug.WriteLine("Loss per acre lbs: {0}", lpalbs);
@@ -242,26 +242,7 @@ namespace HLIOS
             return ret;
         }
 
-        static public double InchToFeet(double valueInInch)
-        {
-            return valueInInch / 12;
-        }
 
-        static public double SquareFeetToMeters(double valueInSF)
-        {
-            return valueInSF * 0.09290304;
-        }
-
-        static public double KgPHaToLbsPAcre(double valueInKgPHa)
-        {
-            return valueInKgPHa / 1.12;
-        }
-
-        static public double MlToG(double valueInMl, double KgPerBu)
-        {
-            var ret = valueInMl * KgPerBu / 36.369;
-            return ret;
-        }
     }
 
     public class MyRadioElement : RadioElement
