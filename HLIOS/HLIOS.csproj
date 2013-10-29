@@ -101,6 +101,14 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Screens\CalcDVC.cs" />
+    <Compile Include="Screens\HelpVC.cs" />
+    <Compile Include="Screens\HelpVC.designer.cs">
+      <DependentUpon>HelpVC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\AboutVC.cs" />
+    <Compile Include="Screens\AboutVC.designer.cs">
+      <DependentUpon>AboutVC.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -126,5 +134,19 @@
     <BundleResource Include="Resources\Icon-72%402x.png" />
     <BundleResource Include="Resources\Icon-76.png" />
     <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Data\Help.txt">
+      <DeployService-Deploy>True</DeployService-Deploy>
+      <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
+    </BundleResource>
+    <BundleResource Include="Data\About.txt">
+      <DeployService-Deploy>True</DeployService-Deploy>
+      <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
+    </BundleResource>
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Screens\HelpVC_iPhone.xib" />
+    <InterfaceDefinition Include="Screens\HelpVC_iPad.xib" />
+    <InterfaceDefinition Include="Screens\AboutVC_iPhone.xib" />
+    <InterfaceDefinition Include="Screens\AboutVC_iPad.xib" />
   </ItemGroup>
 </Project>

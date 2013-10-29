@@ -65,13 +65,20 @@ namespace HLIOS
             {
                 new StringElement("Main", () =>
                 {
-//                    BFCIOSGlobal.ClearAll();
-//                    NavigationController.PushViewController(new CalcDialogController(), true);
+                    NavigationController.PopToRootViewController(false);
+                    NavigationController.PushViewController(new CalcDVC(), true);
                 }),
 
                 new StringElement("Help", () =>
                 {
-//                    NavigationController.PushViewController(new HelpViewController(), true);
+                    NavigationController.PopToRootViewController(false);
+                    NavigationController.PushViewController(new HelpVC(), true);
+
+                }),
+                new StringElement("About", () =>
+                {
+                    NavigationController.PopToRootViewController(false);
+                    NavigationController.PushViewController(new AboutVC(), true);
                 })
             });
         }
