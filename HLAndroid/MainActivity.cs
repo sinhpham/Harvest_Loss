@@ -22,15 +22,7 @@ namespace HLAndroid
             SetContentView(Resource.Layout.Main);
             SetBehindContentView(Resource.Layout.Menu);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.myButton);
-			
-            button.Click += delegate
-            {
-//                var intent = new Intent(this, typeof(CalcDialog));
-                StartActivity(typeof(CalcDialog));
-            };
+
 
             SupportFragmentManager.BeginTransaction()
                 .Add(Resource.Id.menu_fragment_container, new MenuFragment())

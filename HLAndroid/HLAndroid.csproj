@@ -58,7 +58,6 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\MenuFragment.cs" />
-    <Compile Include="Screens\CalcDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -77,14 +76,6 @@
     <ProjectReference Include="..\Core\HLAndroidCore.csproj">
       <Project>{0D2D3B76-56A5-4244-BD8A-00A1CA3BF718}</Project>
       <Name>HLAndroidCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MvvmCross\CrossUI\CrossUI.Droid\CrossUI.Droid.csproj">
-      <Project>{33044C7B-47A4-4113-A61A-EB429407F818}</Project>
-      <Name>CrossUI.Droid</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MvvmCross\CrossUI\CrossUI.Core\CrossUI.Core.csproj">
-      <Project>{D9CBBFFE-57E8-4E97-9E16-C34BC4C52827}</Project>
-      <Name>CrossUI.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

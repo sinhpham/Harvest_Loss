@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<Button  
-    android:id="@+id/myButton"
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/hello"
-    />
-</LinearLayout>
-
+<ScrollView xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:layout_width="fill_parent"
+    p1:layout_height="fill_parent">
+    <LinearLayout
+        p1:minWidth="25px"
+        p1:minHeight="25px"
+        p1:layout_width="fill_parent"
+        p1:layout_height="fill_parent"
+        p1:orientation="vertical"
+        p1:focusable="true"
+        p1:focusableInTouchMode="true"
+        p1:id="@+id/rootLayout1">
+        <TextView
+            p1:text="Method"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <Button
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:onClick="MethodClicked" />
+        <TextView
+            p1:text="Crop"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <Button
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:onClick="CropClicked" />
+        <TextView
+            p1:text="Cut width (ft)"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <EditText
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:inputType="number"
+            p1:id="@+id/editCutWidth" />
+        <TextView
+            p1:text="Sieve width (in)"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <EditText
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:inputType="number"
+            p1:id="@+id/editSieveWidth" />
+        <TextView
+            p1:text="Collecting area (sq ft)"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <EditText
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:inputType="number"
+            p1:id="@+id/editCollectingArea" />
+        <TextView
+            p1:text="Expected yield (bu/arce)"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <EditText
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:inputType="number"
+            p1:id="@+id/editExpectedYield" />
+        <TextView
+            p1:text="Price"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <EditText
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:inputType="number"
+            p1:id="@+id/editPrice" />
+        <TextView
+            p1:text="Seed loss (g)"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <EditText
+            p1:layout_width="250dp"
+            p1:layout_height="wrap_content"
+            p1:inputType="number"
+            p1:id="@+id/editSeedLoss" />
+    </LinearLayout>
+</ScrollView>

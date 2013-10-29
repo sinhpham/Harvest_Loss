@@ -999,6 +999,24 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04000e
 			public const int disableHome = 2130968590;
 			
+			// aapt resource value: 0x7f04003b
+			public const int editCollectingArea = 2130968635;
+			
+			// aapt resource value: 0x7f040039
+			public const int editCutWidth = 2130968633;
+			
+			// aapt resource value: 0x7f04003c
+			public const int editExpectedYield = 2130968636;
+			
+			// aapt resource value: 0x7f04003d
+			public const int editPrice = 2130968637;
+			
+			// aapt resource value: 0x7f04003e
+			public const int editSeedLoss = 2130968638;
+			
+			// aapt resource value: 0x7f04003a
+			public const int editSieveWidth = 2130968634;
+			
 			// aapt resource value: 0x7f04002c
 			public const int edit_query = 2130968620;
 			
@@ -1017,17 +1035,17 @@ namespace HLAndroid
 			// aapt resource value: 0x7f040002
 			public const int margin = 2130968578;
 			
-			// aapt resource value: 0x7f040039
-			public const int menu_fragment_container = 2130968633;
-			
-			// aapt resource value: 0x7f040038
-			public const int myButton = 2130968632;
+			// aapt resource value: 0x7f04003f
+			public const int menu_fragment_container = 2130968639;
 			
 			// aapt resource value: 0x7f040006
 			public const int normal = 2130968582;
 			
 			// aapt resource value: 0x7f040001
 			public const int right = 2130968577;
+			
+			// aapt resource value: 0x7f040038
+			public const int rootLayout1 = 2130968632;
 			
 			// aapt resource value: 0x7f040004
 			public const int selected_view = 2130968580;
@@ -1041,8 +1059,8 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04000c
 			public const int showTitle = 2130968588;
 			
-			// aapt resource value: 0x7f04003a
-			public const int slidingmenumain = 2130968634;
+			// aapt resource value: 0x7f040040
+			public const int slidingmenumain = 2130968640;
 			
 			// aapt resource value: 0x7f040008
 			public const int tabMode = 2130968584;
