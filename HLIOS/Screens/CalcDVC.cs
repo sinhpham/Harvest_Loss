@@ -241,8 +241,6 @@ namespace HLIOS
             ret.Changed += act;
             return ret;
         }
-
-
     }
 
     public class MyRadioElement : RadioElement
