@@ -52,6 +52,7 @@
       <HintPath>..\libs\SlidingMenu.dll</HintPath>
     </Reference>
     <Reference Include="Mono.Android.Support.v4" />
+    <Reference Include="Mono.Android.Export" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
