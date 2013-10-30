@@ -32,9 +32,11 @@ namespace HLIOS
             // create a new window instance based on the screen size
             window = new UIWindow(UIScreen.MainScreen.Bounds);
 
-            var dataLines = File.ReadLines("Data/CropData.txt");
-
-            HLDatabase.CreateDummyData(dataLines);
+            if (!HLDatabase.DbExisted)
+            {
+                var dataLines = File.ReadLines("Data/CropData.txt");
+                HLDatabase.CreateDummyData(dataLines);
+            }
 
             MainScreen = new SlideoutNavigationController();
             MainScreen.TopView = new CalcDVC();
