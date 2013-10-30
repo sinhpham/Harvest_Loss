@@ -13,8 +13,9 @@ namespace HLIOS
             get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
         }
 
+        // Just use the same interface for both iPhone and iPad now
         public HelpVC()
-			: base (UserInterfaceIdiomIsPhone ? "HelpVC_iPhone" : "HelpVC_iPad", null)
+			: base ("HelpVC_iPhone", null)
         {
         }
 
@@ -33,6 +34,8 @@ namespace HLIOS
             // Perform any additional setup after loading the view, typically from a nib.
             var helpText = File.ReadAllText("Data/Help.txt");
             textView.Text = helpText;
+
+            Title = "Help";
         }
     }
 }
