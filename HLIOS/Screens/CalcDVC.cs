@@ -13,6 +13,7 @@ namespace HLIOS
     {
         public CalcDVC() : base (UITableViewStyle.Grouped, null)
         {
+            this.Retain();
             Root = new RootElement("Harvest Loss");
 
             var slEle = CreateActionEntryElement("Seed loss (g)", (sender, arg) =>

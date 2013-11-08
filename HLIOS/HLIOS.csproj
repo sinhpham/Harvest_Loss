@@ -142,6 +142,12 @@
       <DeployService-Deploy>True</DeployService-Deploy>
       <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
     </BundleResource>
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Landscape%402x.png" />
+    <BundleResource Include="Resources\Default-Landscape.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Screens\HelpVC_iPhone.xib" />
