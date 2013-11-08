@@ -39,7 +39,7 @@ namespace HLIOS
             }
 
             MainScreen = new SlideoutNavigationController();
-            MainScreen.TopView = new CalcDVC();
+            MainScreen.TopView = new AboutVC();
             MainScreen.MenuView = new SlideoutMenuDVC();
 			
             // If you have defined a root view controller, set it here:
