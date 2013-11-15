@@ -126,13 +126,6 @@ namespace HLIOS
             Root.Add(new List<Section> { sec, _resSec });
         }
 
-        enum MethodChoice
-        {
-            Weight,
-            Volume,
-            Count
-        }
-
         MethodChoice _currChoice = MethodChoice.Weight;
         Section _resSec;
         StringElement _lpaLbs;

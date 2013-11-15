@@ -81,5 +81,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Screens\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\About.txt" />
+    <AndroidAsset Include="Assets\CropData.txt" />
+    <AndroidAsset Include="Assets\Help.txt" />
   </ItemGroup>
 </Project>

@@ -54,5 +54,6 @@
     <Compile Include="Database\HLDatabase.cs" />
     <Compile Include="SQLite.cs" />
     <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="Helper.cs" />
   </ItemGroup>
 </Project>

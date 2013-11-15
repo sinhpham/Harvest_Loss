@@ -15,8 +15,8 @@ namespace HLIOSCore
 
         static HLDatabase()
         {
-            var docs = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            _dbPath = Path.Combine(docs, _dbName);
+			var dir = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+			_dbPath = Path.Combine(dir, _dbName);
             try
             {
                 _db = new SQLite.SQLiteConnection(_dbPath, SQLite.SQLiteOpenFlags.ReadWrite);

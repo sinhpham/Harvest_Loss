@@ -89,6 +89,6 @@ Global
 		{0D2D3B76-56A5-4244-BD8A-00A1CA3BF718} = {FFF31631-6364-46DA-9B25-D78F67F1659E}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = HLIOS\HLIOS.csproj
+		StartupItem = HLAndroid\HLAndroid.csproj
 	EndGlobalSection
 EndGlobal
