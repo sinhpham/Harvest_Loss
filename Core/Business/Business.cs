@@ -22,6 +22,17 @@ namespace HLIOSCore
 
 	public class InputParas
 	{
+		public InputParas()
+		{
+			CurrChoice = MethodChoice.Weight;
+			CurrCutWidth = -1;
+			CurrSieveWidth = -1;
+			CurrCollectingAreasqft = -1;
+			CurrExpectedYield = -1;
+			CurrPrice = -1;
+			CurrSeedLossInput = -1;
+		}
+
 		public MethodChoice CurrChoice { get; set; }
 
 		public double CurrCutWidth { get; set; }
@@ -56,7 +67,5 @@ namespace HLIOSCore
 		Volume,
 		Count
 	}
-
-
 }
 

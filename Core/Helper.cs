@@ -31,7 +31,7 @@ namespace HLIOSCore
 			if (paras.CurrCutWidth == -1 || paras.CurrSieveWidth == -1 || paras.CurrSeedLossInput == -1 ||
 				paras.CurrCollectingAreasqft == -1 || paras.CurrCrop == null)
 			{
-				return;
+                return null;
 			}
 			var _currSeedLossInG = paras.CurrSeedLossInput;
 			if (paras.CurrChoice == MethodChoice.Count)
@@ -74,6 +74,8 @@ namespace HLIOSCore
 				Debug.WriteLine("Loss value: {0}", lossValue);
 				ret.LossValue = lossValue.ToString("C");
 			}
+
+            return ret;
 		}
 	}
 }

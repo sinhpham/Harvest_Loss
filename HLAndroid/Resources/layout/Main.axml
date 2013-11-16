@@ -89,5 +89,34 @@
             p1:layout_height="wrap_content"
             p1:inputType="number"
             p1:id="@+id/editSeedLoss" />
+        <TextView
+            p1:text="Results"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content" />
+        <TextView
+            p1:text="Loss per acre (lbs):"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/resLbs" />
+        <TextView
+            p1:text="Loss per acre (bu):"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/resBu" />
+        <TextView
+            p1:text="Loss (%):"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/resLossPercent" />
+        <TextView
+            p1:text="Loss value ($/acre):"
+            p1:textAppearance="?android:attr/textAppearanceLarge"
+            p1:layout_width="fill_parent"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/resLossValue" />
     </LinearLayout>
 </ScrollView>

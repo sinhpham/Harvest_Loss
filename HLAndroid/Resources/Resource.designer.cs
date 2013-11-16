@@ -1035,11 +1035,23 @@ namespace HLAndroid
 			// aapt resource value: 0x7f040002
 			public const int margin = 2130968578;
 			
-			// aapt resource value: 0x7f04003f
-			public const int menu_fragment_container = 2130968639;
+			// aapt resource value: 0x7f040043
+			public const int menu_fragment_container = 2130968643;
 			
 			// aapt resource value: 0x7f040006
 			public const int normal = 2130968582;
+			
+			// aapt resource value: 0x7f040040
+			public const int resBu = 2130968640;
+			
+			// aapt resource value: 0x7f04003f
+			public const int resLbs = 2130968639;
+			
+			// aapt resource value: 0x7f040041
+			public const int resLossPercent = 2130968641;
+			
+			// aapt resource value: 0x7f040042
+			public const int resLossValue = 2130968642;
 			
 			// aapt resource value: 0x7f040001
 			public const int right = 2130968577;
@@ -1059,8 +1071,8 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04000c
 			public const int showTitle = 2130968588;
 			
-			// aapt resource value: 0x7f040040
-			public const int slidingmenumain = 2130968640;
+			// aapt resource value: 0x7f040044
+			public const int slidingmenumain = 2130968644;
 			
 			// aapt resource value: 0x7f040008
 			public const int tabMode = 2130968584;

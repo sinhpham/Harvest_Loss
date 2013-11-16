@@ -48,6 +48,65 @@ namespace HLAndroid
 				//var dataLines = File.ReadLines();
 				HLDatabase.CreateDummyData(dl);
 			}
+
+			SetupEditTextFields();
+
+		}
+
+		void SetupEditTextFields()
+		{
+			var cutWidth = FindViewById<EditText>(Resource.Id.editCutWidth);
+			var sieveWidth = FindViewById<EditText>(Resource.Id.editSieveWidth);
+			var collectingArea = FindViewById<EditText>(Resource.Id.editCollectingArea);
+			var expectedYield = FindViewById<EditText>(Resource.Id.editExpectedYield);
+			var price = FindViewById<EditText>(Resource.Id.editPrice);
+			var seedLoss = FindViewById<EditText>(Resource.Id.editSeedLoss);
+
+			cutWidth.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+			{
+				_inputParas.CurrCutWidth = ParseEditText((EditText)sender);
+				RefreshResult();
+			};
+			sieveWidth.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+			{
+				_inputParas.CurrSieveWidth = ParseEditText((EditText)sender);
+				RefreshResult();
+			};
+			collectingArea.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+			{
+				_inputParas.CurrCollectingAreasqft = ParseEditText((EditText)sender);
+				RefreshResult();
+			};
+			expectedYield.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+			{
+				_inputParas.CurrExpectedYield = ParseEditText((EditText)sender);
+				RefreshResult();
+			};
+			price.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+			{
+				_inputParas.CurrPrice = ParseEditText((EditText)sender);
+				RefreshResult();
+			};
+			seedLoss.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+			{
+				_inputParas.CurrSeedLossInput = ParseEditText((EditText)sender);
+				RefreshResult();
+			};
+		}
+
+		double ParseEditText(EditText et)
+		{
+			if (string.IsNullOrWhiteSpace(et.Text))
+			{
+				return -1;
+			}
+			var pValue = 0.0;
+			if (!double.TryParse(et.Text, out pValue))
+			{
+				et.Text = null;
+				return -1;
+			}
+			return pValue;
 		}
 
 		public IEnumerable<string> ReadLines(Func<Stream> streamProvider,
@@ -93,6 +152,9 @@ namespace HLAndroid
 					default:
 						throw new InvalidDataException();
 				}
+
+				((Button)v).Text = selected;
+				RefreshResult();
 			});
 		}
 
@@ -103,6 +165,8 @@ namespace HLAndroid
 			CreateSelectDialog(l, x => x.ToString(), "Select method", selected =>
 			{
 				_inputParas.CurrCrop = selected;
+				((Button)v).Text = selected.ToString();
+				RefreshResult();
 			});
 		}
 
@@ -123,7 +187,24 @@ namespace HLAndroid
 			}).Create().Show();
 		}
 
-		InputParas _inputParas;
+		InputParas _inputParas = new InputParas();
+
+		void RefreshResult()
+		{
+			var res = Helper.Calc(_inputParas);
+			if (res != null)
+			{
+				var resLbs = FindViewById<TextView>(Resource.Id.resLbs);
+				var resBu = FindViewById<TextView>(Resource.Id.resBu);
+				var resLossPercent = FindViewById<TextView>(Resource.Id.resLossPercent);
+				var resLossValue = FindViewById<TextView>(Resource.Id.resLossValue);
+
+				resLbs.Text = resLbs.Text.Substring(0, resLbs.Text.IndexOf(':') + 1) + res.LpaLbs;
+				resBu.Text = resBu.Text.Substring(0, resBu.Text.IndexOf(':') + 1) + res.LpaBu;
+				resLossPercent.Text = resLossPercent.Text.Substring(0, resLossPercent.Text.IndexOf(':') + 1) + res.PercentLoss;
+				resLossValue.Text = resLossValue.Text.Substring(0, resLossValue.Text.IndexOf(':') + 1) + res.LossValue;
+			}
+		}
 	}
 }
 
