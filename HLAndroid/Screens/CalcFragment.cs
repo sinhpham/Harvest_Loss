@@ -165,10 +165,10 @@ namespace HLAndroid
 				var resLossPercent = Activity.FindViewById<TextView>(Resource.Id.resLossPercent);
 				var resLossValue = Activity.FindViewById<TextView>(Resource.Id.resLossValue);
 
-				resLbs.Text = resLbs.Text.Substring(0, resLbs.Text.IndexOf(':') + 1) + res.LpaLbs;
-				resBu.Text = resBu.Text.Substring(0, resBu.Text.IndexOf(':') + 1) + res.LpaBu;
-				resLossPercent.Text = resLossPercent.Text.Substring(0, resLossPercent.Text.IndexOf(':') + 1) + res.PercentLoss;
-				resLossValue.Text = resLossValue.Text.Substring(0, resLossValue.Text.IndexOf(':') + 1) + res.LossValue;
+				resLbs.Text = resLbs.Text.Substring(0, resLbs.Text.IndexOf(':') + 1) + " " + res.LpaLbs;
+				resBu.Text = resBu.Text.Substring(0, resBu.Text.IndexOf(':') + 1) + " " + res.LpaBu;
+				resLossPercent.Text = resLossPercent.Text.Substring(0, resLossPercent.Text.IndexOf(':') + 1) + " " + res.PercentLoss;
+				resLossValue.Text = resLossValue.Text.Substring(0, resLossValue.Text.IndexOf(':') + 1) + " " + res.LossValue;
 			}
 		}
     }
