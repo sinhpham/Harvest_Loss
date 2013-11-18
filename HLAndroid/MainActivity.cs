@@ -16,7 +16,7 @@ using System.Text;
 
 namespace HLAndroid
 {
-	[Activity(Label = "HLAndroid", MainLauncher = true)]
+	[Activity(Label = "Harvest Loss", MainLauncher = true)]
 	public class MainActivity : SlidingFragmentActivity, MenuFragment.ISlidingMenuAct
 	{
 		public override void OnCreate(Bundle bundle)
