@@ -8,8 +8,6 @@
         p1:layout_width="fill_parent"
         p1:layout_height="fill_parent"
         p1:orientation="vertical"
-        p1:focusable="true"
-        p1:focusableInTouchMode="true"
         p1:id="@+id/rootLayout1">
         <TextView
             p1:text="Method"

@@ -858,10 +858,13 @@ namespace HLAndroid
 			public const int abs__textfield_searchview_right_holo_light = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int Icon = 2130837615;
+			public const int HarvestLossIcon = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int SlidingMenuShadow = 2130837616;
+			public const int Icon = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int SlidingMenuShadow = 2130837617;
 			
 			static Drawable()
 			{

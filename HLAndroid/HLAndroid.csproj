@@ -76,6 +76,7 @@
     <AndroidResource Include="Resources\drawable\SlidingMenuShadow.xml" />
     <AndroidResource Include="Resources\layout\MainFragContainer.axml" />
     <AndroidResource Include="Resources\layout\AboutLayout.axml" />
+    <AndroidResource Include="Resources\drawable\HarvestLossIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
