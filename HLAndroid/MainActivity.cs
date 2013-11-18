@@ -24,8 +24,12 @@ namespace HLAndroid
 			base.OnCreate(bundle);
 
 			// Set our view from the "main" layout resource
-			SetContentView(Resource.Layout.Main);
+			SetContentView(Resource.Layout.MainFragContainer);
 			SetBehindContentView(Resource.Layout.Menu);
+
+			SupportFragmentManager.BeginTransaction()
+				.Add(Resource.Id.fragment_container, new CalcFragment(), CalcFragTag)
+				.Commit();
 
 			SupportFragmentManager.BeginTransaction()
                 .Add(Resource.Id.menu_fragment_container, new MenuFragment())
@@ -44,70 +48,11 @@ namespace HLAndroid
 			if (!HLDatabase.DbExisted)
 			{
 				var dl = ReadLines(() => Assets.Open("CropData.txt"), Encoding.ASCII);
-				//var istream = Assets.Open("CropData.txt");
-				//var dataLines = File.ReadLines();
 				HLDatabase.CreateDummyData(dl);
 			}
-
-			SetupEditTextFields();
-
 		}
 
-		void SetupEditTextFields()
-		{
-			var cutWidth = FindViewById<EditText>(Resource.Id.editCutWidth);
-			var sieveWidth = FindViewById<EditText>(Resource.Id.editSieveWidth);
-			var collectingArea = FindViewById<EditText>(Resource.Id.editCollectingArea);
-			var expectedYield = FindViewById<EditText>(Resource.Id.editExpectedYield);
-			var price = FindViewById<EditText>(Resource.Id.editPrice);
-			var seedLoss = FindViewById<EditText>(Resource.Id.editSeedLoss);
-
-			cutWidth.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
-			{
-				_inputParas.CurrCutWidth = ParseEditText((EditText)sender);
-				RefreshResult();
-			};
-			sieveWidth.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
-			{
-				_inputParas.CurrSieveWidth = ParseEditText((EditText)sender);
-				RefreshResult();
-			};
-			collectingArea.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
-			{
-				_inputParas.CurrCollectingAreasqft = ParseEditText((EditText)sender);
-				RefreshResult();
-			};
-			expectedYield.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
-			{
-				_inputParas.CurrExpectedYield = ParseEditText((EditText)sender);
-				RefreshResult();
-			};
-			price.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
-			{
-				_inputParas.CurrPrice = ParseEditText((EditText)sender);
-				RefreshResult();
-			};
-			seedLoss.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
-			{
-				_inputParas.CurrSeedLossInput = ParseEditText((EditText)sender);
-				RefreshResult();
-			};
-		}
-
-		double ParseEditText(EditText et)
-		{
-			if (string.IsNullOrWhiteSpace(et.Text))
-			{
-				return -1;
-			}
-			var pValue = 0.0;
-			if (!double.TryParse(et.Text, out pValue))
-			{
-				et.Text = null;
-				return -1;
-			}
-			return pValue;
-		}
+		const string CalcFragTag = "calfragtag";
 
 		public IEnumerable<string> ReadLines(Func<Stream> streamProvider,
 		                                     Encoding encoding)
@@ -132,6 +77,24 @@ namespace HLAndroid
 				return true;
 			}
 			return base.OnOptionsItemSelected(p0);
+		}
+
+		[Export]
+		public void MethodClicked(View v)
+		{
+			var f = SupportFragmentManager.FindFragmentByTag (CalcFragTag);
+			if (f != null) {
+				((CalcFragment)f).MethodClicked(v);
+			}
+		}
+
+		[Export]
+		public void CropClicked(View v)
+		{
+			var f = SupportFragmentManager.FindFragmentByTag (CalcFragTag);
+			if (f != null) {
+				((CalcFragment)f).CropClicked(v);
+			}
 		}
 
 		public void SelectedItemChanged(int position, string label)
@@ -164,83 +127,6 @@ namespace HLAndroid
 					break;
 				default:
 					throw new InvalidOperationException();
-			}
-		}
-
-		[Export]
-		public void MethodClicked(View v)
-		{
-			const string wStr = "Weight";
-			const string vStr = "Volume";
-			const string cStr = "Count";
-			var l = new List<string> { wStr, vStr, cStr };
-			CreateSelectDialog(l, x => x, "Select method", selected =>
-			{
-				switch (selected)
-				{
-					case wStr:
-						_inputParas.CurrChoice = MethodChoice.Weight;
-						break;
-					case vStr:
-						_inputParas.CurrChoice = MethodChoice.Volume;
-						break;
-					case cStr:
-						_inputParas.CurrChoice = MethodChoice.Count;
-						break;
-					default:
-						throw new InvalidDataException();
-				}
-
-				((Button)v).Text = selected;
-				RefreshResult();
-			});
-		}
-
-		[Export]
-		public void CropClicked(View v)
-		{
-			var l = HLDatabase.GetTable<Crop>();
-			CreateSelectDialog(l, x => x.ToString(), "Select method", selected =>
-			{
-				_inputParas.CurrCrop = selected;
-				((Button)v).Text = selected.ToString();
-				RefreshResult();
-			});
-		}
-
-		private void CreateSelectDialog<T>(IList<T> list, Func<T, string> display, string title, Action<T> selectedAction)
-		{
-			// Return selected index
-			var displayList = list.Select(display).ToArray();
-			var adap = new ArrayAdapter(this, Android.Resource.Layout.SimpleSpinnerDropDownItem, displayList);
-
-			new AlertDialog.Builder(this)
-                .SetTitle(title)
-                    .SetSingleChoiceItems(adap, -1, (s, arg) =>
-			{
-				var ad = (AlertDialog)s;
-				var pos = ad.ListView.CheckedItemPosition;
-				ad.Dismiss();
-				selectedAction(list[pos]);
-			}).Create().Show();
-		}
-
-		InputParas _inputParas = new InputParas();
-
-		void RefreshResult()
-		{
-			var res = Helper.Calc(_inputParas);
-			if (res != null)
-			{
-				var resLbs = FindViewById<TextView>(Resource.Id.resLbs);
-				var resBu = FindViewById<TextView>(Resource.Id.resBu);
-				var resLossPercent = FindViewById<TextView>(Resource.Id.resLossPercent);
-				var resLossValue = FindViewById<TextView>(Resource.Id.resLossValue);
-
-				resLbs.Text = resLbs.Text.Substring(0, resLbs.Text.IndexOf(':') + 1) + res.LpaLbs;
-				resBu.Text = resBu.Text.Substring(0, resBu.Text.IndexOf(':') + 1) + res.LpaBu;
-				resLossPercent.Text = resLossPercent.Text.Substring(0, resLossPercent.Text.IndexOf(':') + 1) + res.PercentLoss;
-				resLossValue.Text = resLossValue.Text.Substring(0, resLossValue.Text.IndexOf(':') + 1) + res.LossValue;
 			}
 		}
 	}

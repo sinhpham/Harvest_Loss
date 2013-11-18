@@ -19,6 +19,7 @@
         <Button
             p1:layout_width="250dp"
             p1:layout_height="wrap_content"
+            p1:text="Weight"
             p1:onClick="MethodClicked" />
         <TextView
             p1:text="Crop"
@@ -83,7 +84,8 @@
             p1:text="Seed loss (g)"
             p1:textAppearance="?android:attr/textAppearanceLarge"
             p1:layout_width="wrap_content"
-            p1:layout_height="wrap_content" />
+            p1:layout_height="wrap_content"
+            p1:id="@+id/tvSeedLoss" />
         <EditText
             p1:layout_width="250dp"
             p1:layout_height="wrap_content"

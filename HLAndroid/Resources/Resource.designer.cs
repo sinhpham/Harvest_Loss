@@ -1011,14 +1011,17 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04003d
 			public const int editPrice = 2130968637;
 			
-			// aapt resource value: 0x7f04003e
-			public const int editSeedLoss = 2130968638;
+			// aapt resource value: 0x7f04003f
+			public const int editSeedLoss = 2130968639;
 			
 			// aapt resource value: 0x7f04003a
 			public const int editSieveWidth = 2130968634;
 			
 			// aapt resource value: 0x7f04002c
 			public const int edit_query = 2130968620;
+			
+			// aapt resource value: 0x7f040044
+			public const int fragment_container = 2130968644;
 			
 			// aapt resource value: 0x7f040003
 			public const int fullscreen = 2130968579;
@@ -1035,23 +1038,23 @@ namespace HLAndroid
 			// aapt resource value: 0x7f040002
 			public const int margin = 2130968578;
 			
-			// aapt resource value: 0x7f040043
-			public const int menu_fragment_container = 2130968643;
+			// aapt resource value: 0x7f040045
+			public const int menu_fragment_container = 2130968645;
 			
 			// aapt resource value: 0x7f040006
 			public const int normal = 2130968582;
 			
-			// aapt resource value: 0x7f040040
-			public const int resBu = 2130968640;
-			
-			// aapt resource value: 0x7f04003f
-			public const int resLbs = 2130968639;
-			
 			// aapt resource value: 0x7f040041
-			public const int resLossPercent = 2130968641;
+			public const int resBu = 2130968641;
+			
+			// aapt resource value: 0x7f040040
+			public const int resLbs = 2130968640;
 			
 			// aapt resource value: 0x7f040042
-			public const int resLossValue = 2130968642;
+			public const int resLossPercent = 2130968642;
+			
+			// aapt resource value: 0x7f040043
+			public const int resLossValue = 2130968643;
 			
 			// aapt resource value: 0x7f040001
 			public const int right = 2130968577;
@@ -1071,11 +1074,14 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04000c
 			public const int showTitle = 2130968588;
 			
-			// aapt resource value: 0x7f040044
-			public const int slidingmenumain = 2130968644;
+			// aapt resource value: 0x7f040046
+			public const int slidingmenumain = 2130968646;
 			
 			// aapt resource value: 0x7f040008
 			public const int tabMode = 2130968584;
+			
+			// aapt resource value: 0x7f04003e
+			public const int tvSeedLoss = 2130968638;
 			
 			// aapt resource value: 0x7f040009
 			public const int useLogo = 2130968585;
@@ -1185,16 +1191,19 @@ namespace HLAndroid
 			public const int Main = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int Menu = 2130903064;
+			public const int MainFragContainer = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int sherlock_spinner_dropdown_item = 2130903065;
+			public const int Menu = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int sherlock_spinner_item = 2130903066;
+			public const int sherlock_spinner_dropdown_item = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int slidingmenumain = 2130903067;
+			public const int sherlock_spinner_item = 2130903067;
+			
+			// aapt resource value: 0x7f03001c
+			public const int slidingmenumain = 2130903068;
 			
 			static Layout()
 			{
