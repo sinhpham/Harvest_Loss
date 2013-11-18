@@ -123,10 +123,48 @@ namespace HLAndroid
 			}
 		}
 
+		public override bool OnOptionsItemSelected(ActionbarSherlock.View.IMenuItem p0)
+		{
+			var text = p0.TitleFormatted.ToString();
+			if (text == Title)
+			{
+				SlidingMenu.ShowMenu();
+				return true;
+			}
+			return base.OnOptionsItemSelected(p0);
+		}
+
 		public void SelectedItemChanged(int position, string label)
 		{
 			// TODO: handle menu item changed.
-			Console.WriteLine(label);
+			switch (label)
+			{
+				case "Home":
+					{
+//						var calcFrag = new CalcFragment();
+//						var transaction = SupportFragmentManager.BeginTransaction();
+//						transaction.Replace(Resource.Id.fragment_container, calcFrag, CalcFragTag);
+//						transaction.Commit();
+//						SlidingMenu.ShowContent();
+					}
+					break;
+				case "Help":
+					{
+//						Toast.MakeText(this.SupportActionBar.ThemedContext, "help clicked", ToastLength.Short).Show();
+					}
+					break;
+				case "About":
+					{
+//						var aFrag = new AboutFragment();
+//						var transaction = SupportFragmentManager.BeginTransaction();
+//						transaction.Replace(Resource.Id.fragment_container, aFrag);
+//						transaction.Commit();
+//						SlidingMenu.ShowContent();
+					}
+					break;
+				default:
+					throw new InvalidOperationException();
+			}
 		}
 
 		[Export]
