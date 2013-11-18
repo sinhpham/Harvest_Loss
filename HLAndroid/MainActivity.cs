@@ -47,26 +47,14 @@ namespace HLAndroid
 
 			if (!HLDatabase.DbExisted)
 			{
-				var dl = ReadLines(() => Assets.Open("CropData.txt"), Encoding.ASCII);
+				var dl = Helper.ReadLines(() => Assets.Open("CropData.txt"), Encoding.ASCII);
 				HLDatabase.CreateDummyData(dl);
 			}
 		}
 
 		const string CalcFragTag = "calfragtag";
 
-		public IEnumerable<string> ReadLines(Func<Stream> streamProvider,
-		                                     Encoding encoding)
-		{
-			using (var stream = streamProvider())
-			using (var reader = new StreamReader(stream, encoding))
-			{
-				string line;
-				while ((line = reader.ReadLine()) != null)
-				{
-					yield return line;
-				}
-			}
-		}
+
 
 		public override bool OnOptionsItemSelected(ActionbarSherlock.View.IMenuItem p0)
 		{
@@ -104,25 +92,29 @@ namespace HLAndroid
 			{
 				case "Home":
 					{
-//						var calcFrag = new CalcFragment();
-//						var transaction = SupportFragmentManager.BeginTransaction();
-//						transaction.Replace(Resource.Id.fragment_container, calcFrag, CalcFragTag);
-//						transaction.Commit();
-//						SlidingMenu.ShowContent();
+						var calcFrag = new CalcFragment();
+						var transaction = SupportFragmentManager.BeginTransaction();
+						transaction.Replace(Resource.Id.fragment_container, calcFrag, CalcFragTag);
+						transaction.Commit();
+						SlidingMenu.ShowContent();
 					}
 					break;
 				case "Help":
 					{
-//						Toast.MakeText(this.SupportActionBar.ThemedContext, "help clicked", ToastLength.Short).Show();
+						var hFrag = new HelpFrag();
+						var transaction = SupportFragmentManager.BeginTransaction();
+						transaction.Replace(Resource.Id.fragment_container, hFrag);
+						transaction.Commit();
+						SlidingMenu.ShowContent();
 					}
 					break;
 				case "About":
 					{
-//						var aFrag = new AboutFragment();
-//						var transaction = SupportFragmentManager.BeginTransaction();
-//						transaction.Replace(Resource.Id.fragment_container, aFrag);
-//						transaction.Commit();
-//						SlidingMenu.ShowContent();
+						var aFrag = new AboutFrag();
+						var transaction = SupportFragmentManager.BeginTransaction();
+						transaction.Replace(Resource.Id.fragment_container, aFrag);
+						transaction.Commit();
+						SlidingMenu.ShowContent();
 					}
 					break;
 				default:

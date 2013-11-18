@@ -1,5 +1,8 @@
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
 
 namespace HLIOSCore
 {
@@ -76,6 +79,20 @@ namespace HLIOSCore
 			}
 
             return ret;
+		}
+
+		static public IEnumerable<string> ReadLines(Func<Stream> streamProvider,
+			Encoding encoding)
+		{
+			using (var stream = streamProvider())
+			using (var reader = new StreamReader(stream, encoding))
+			{
+				string line;
+				while ((line = reader.ReadLine()) != null)
+				{
+					yield return line;
+				}
+			}
 		}
 	}
 }

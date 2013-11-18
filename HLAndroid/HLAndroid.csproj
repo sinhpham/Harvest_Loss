@@ -60,6 +60,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screens\MenuFragment.cs" />
     <Compile Include="Screens\CalcFragment.cs" />
+    <Compile Include="Screens\AboutFrag.cs" />
+    <Compile Include="Screens\HelpFrag.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -73,6 +75,7 @@
     <AndroidResource Include="Resources\layout\Menu.axml" />
     <AndroidResource Include="Resources\drawable\SlidingMenuShadow.xml" />
     <AndroidResource Include="Resources\layout\MainFragContainer.axml" />
+    <AndroidResource Include="Resources\layout\AboutLayout.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>

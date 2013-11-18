@@ -876,20 +876,20 @@ namespace HLAndroid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040027
-			public const int abs__action_bar = 2130968615;
+			// aapt resource value: 0x7f040028
+			public const int abs__action_bar = 2130968616;
 			
-			// aapt resource value: 0x7f040026
-			public const int abs__action_bar_container = 2130968614;
+			// aapt resource value: 0x7f040027
+			public const int abs__action_bar_container = 2130968615;
+			
+			// aapt resource value: 0x7f040017
+			public const int abs__action_bar_subtitle = 2130968599;
 			
 			// aapt resource value: 0x7f040016
-			public const int abs__action_bar_subtitle = 2130968598;
+			public const int abs__action_bar_title = 2130968598;
 			
-			// aapt resource value: 0x7f040015
-			public const int abs__action_bar_title = 2130968597;
-			
-			// aapt resource value: 0x7f040028
-			public const int abs__action_context_bar = 2130968616;
+			// aapt resource value: 0x7f040029
+			public const int abs__action_context_bar = 2130968617;
 			
 			// aapt resource value: 0x7f040011
 			public const int abs__action_menu_divider = 2130968593;
@@ -897,44 +897,44 @@ namespace HLAndroid
 			// aapt resource value: 0x7f040012
 			public const int abs__action_menu_presenter = 2130968594;
 			
+			// aapt resource value: 0x7f04002c
+			public const int abs__action_mode_bar = 2130968620;
+			
 			// aapt resource value: 0x7f04002b
-			public const int abs__action_mode_bar = 2130968619;
-			
-			// aapt resource value: 0x7f04002a
-			public const int abs__action_mode_bar_stub = 2130968618;
-			
-			// aapt resource value: 0x7f040019
-			public const int abs__action_mode_close_button = 2130968601;
+			public const int abs__action_mode_bar_stub = 2130968619;
 			
 			// aapt resource value: 0x7f04001a
-			public const int abs__activity_chooser_view_content = 2130968602;
-			
-			// aapt resource value: 0x7f040023
-			public const int abs__checkbox = 2130968611;
-			
-			// aapt resource value: 0x7f040022
-			public const int abs__content = 2130968610;
-			
-			// aapt resource value: 0x7f04001d
-			public const int abs__default_activity_button = 2130968605;
+			public const int abs__action_mode_close_button = 2130968602;
 			
 			// aapt resource value: 0x7f04001b
-			public const int abs__expand_activities_button = 2130968603;
+			public const int abs__activity_chooser_view_content = 2130968603;
+			
+			// aapt resource value: 0x7f040024
+			public const int abs__checkbox = 2130968612;
+			
+			// aapt resource value: 0x7f040023
+			public const int abs__content = 2130968611;
+			
+			// aapt resource value: 0x7f04001e
+			public const int abs__default_activity_button = 2130968606;
+			
+			// aapt resource value: 0x7f04001c
+			public const int abs__expand_activities_button = 2130968604;
 			
 			// aapt resource value: 0x7f04000f
 			public const int abs__home = 2130968591;
 			
+			// aapt resource value: 0x7f040020
+			public const int abs__icon = 2130968608;
+			
+			// aapt resource value: 0x7f04001d
+			public const int abs__image = 2130968605;
+			
+			// aapt resource value: 0x7f040018
+			public const int abs__imageButton = 2130968600;
+			
 			// aapt resource value: 0x7f04001f
-			public const int abs__icon = 2130968607;
-			
-			// aapt resource value: 0x7f04001c
-			public const int abs__image = 2130968604;
-			
-			// aapt resource value: 0x7f040017
-			public const int abs__imageButton = 2130968599;
-			
-			// aapt resource value: 0x7f04001e
-			public const int abs__list_item = 2130968606;
+			public const int abs__list_item = 2130968607;
 			
 			// aapt resource value: 0x7f040013
 			public const int abs__progress_circular = 2130968595;
@@ -942,56 +942,56 @@ namespace HLAndroid
 			// aapt resource value: 0x7f040014
 			public const int abs__progress_horizontal = 2130968596;
 			
-			// aapt resource value: 0x7f040025
-			public const int abs__radio = 2130968613;
-			
-			// aapt resource value: 0x7f04002e
-			public const int abs__search_badge = 2130968622;
-			
-			// aapt resource value: 0x7f04002d
-			public const int abs__search_bar = 2130968621;
+			// aapt resource value: 0x7f040026
+			public const int abs__radio = 2130968614;
 			
 			// aapt resource value: 0x7f04002f
-			public const int abs__search_button = 2130968623;
+			public const int abs__search_badge = 2130968623;
 			
-			// aapt resource value: 0x7f040034
-			public const int abs__search_close_btn = 2130968628;
+			// aapt resource value: 0x7f04002e
+			public const int abs__search_bar = 2130968622;
 			
 			// aapt resource value: 0x7f040030
-			public const int abs__search_edit_frame = 2130968624;
-			
-			// aapt resource value: 0x7f040036
-			public const int abs__search_go_btn = 2130968630;
-			
-			// aapt resource value: 0x7f040031
-			public const int abs__search_mag_icon = 2130968625;
-			
-			// aapt resource value: 0x7f040032
-			public const int abs__search_plate = 2130968626;
-			
-			// aapt resource value: 0x7f040033
-			public const int abs__search_src_text = 2130968627;
-			
-			// aapt resource value: 0x7f040037
-			public const int abs__search_voice_btn = 2130968631;
-			
-			// aapt resource value: 0x7f040024
-			public const int abs__shortcut = 2130968612;
-			
-			// aapt resource value: 0x7f040029
-			public const int abs__split_action_bar = 2130968617;
+			public const int abs__search_button = 2130968624;
 			
 			// aapt resource value: 0x7f040035
-			public const int abs__submit_area = 2130968629;
+			public const int abs__search_close_btn = 2130968629;
 			
-			// aapt resource value: 0x7f040018
-			public const int abs__textButton = 2130968600;
+			// aapt resource value: 0x7f040031
+			public const int abs__search_edit_frame = 2130968625;
 			
-			// aapt resource value: 0x7f040020
-			public const int abs__title = 2130968608;
+			// aapt resource value: 0x7f040037
+			public const int abs__search_go_btn = 2130968631;
+			
+			// aapt resource value: 0x7f040032
+			public const int abs__search_mag_icon = 2130968626;
+			
+			// aapt resource value: 0x7f040033
+			public const int abs__search_plate = 2130968627;
+			
+			// aapt resource value: 0x7f040034
+			public const int abs__search_src_text = 2130968628;
+			
+			// aapt resource value: 0x7f040038
+			public const int abs__search_voice_btn = 2130968632;
+			
+			// aapt resource value: 0x7f040025
+			public const int abs__shortcut = 2130968613;
+			
+			// aapt resource value: 0x7f04002a
+			public const int abs__split_action_bar = 2130968618;
+			
+			// aapt resource value: 0x7f040036
+			public const int abs__submit_area = 2130968630;
+			
+			// aapt resource value: 0x7f040019
+			public const int abs__textButton = 2130968601;
 			
 			// aapt resource value: 0x7f040021
-			public const int abs__titleDivider = 2130968609;
+			public const int abs__title = 2130968609;
+			
+			// aapt resource value: 0x7f040022
+			public const int abs__titleDivider = 2130968610;
 			
 			// aapt resource value: 0x7f040010
 			public const int abs__up = 2130968592;
@@ -999,29 +999,29 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04000e
 			public const int disableHome = 2130968590;
 			
-			// aapt resource value: 0x7f04003b
-			public const int editCollectingArea = 2130968635;
-			
-			// aapt resource value: 0x7f040039
-			public const int editCutWidth = 2130968633;
-			
 			// aapt resource value: 0x7f04003c
-			public const int editExpectedYield = 2130968636;
-			
-			// aapt resource value: 0x7f04003d
-			public const int editPrice = 2130968637;
-			
-			// aapt resource value: 0x7f04003f
-			public const int editSeedLoss = 2130968639;
+			public const int editCollectingArea = 2130968636;
 			
 			// aapt resource value: 0x7f04003a
-			public const int editSieveWidth = 2130968634;
+			public const int editCutWidth = 2130968634;
 			
-			// aapt resource value: 0x7f04002c
-			public const int edit_query = 2130968620;
+			// aapt resource value: 0x7f04003d
+			public const int editExpectedYield = 2130968637;
 			
-			// aapt resource value: 0x7f040044
-			public const int fragment_container = 2130968644;
+			// aapt resource value: 0x7f04003e
+			public const int editPrice = 2130968638;
+			
+			// aapt resource value: 0x7f040040
+			public const int editSeedLoss = 2130968640;
+			
+			// aapt resource value: 0x7f04003b
+			public const int editSieveWidth = 2130968635;
+			
+			// aapt resource value: 0x7f04002d
+			public const int edit_query = 2130968621;
+			
+			// aapt resource value: 0x7f040045
+			public const int fragment_container = 2130968645;
 			
 			// aapt resource value: 0x7f040003
 			public const int fullscreen = 2130968579;
@@ -1038,29 +1038,29 @@ namespace HLAndroid
 			// aapt resource value: 0x7f040002
 			public const int margin = 2130968578;
 			
-			// aapt resource value: 0x7f040045
-			public const int menu_fragment_container = 2130968645;
+			// aapt resource value: 0x7f040046
+			public const int menu_fragment_container = 2130968646;
 			
 			// aapt resource value: 0x7f040006
 			public const int normal = 2130968582;
 			
-			// aapt resource value: 0x7f040041
-			public const int resBu = 2130968641;
-			
-			// aapt resource value: 0x7f040040
-			public const int resLbs = 2130968640;
-			
 			// aapt resource value: 0x7f040042
-			public const int resLossPercent = 2130968642;
+			public const int resBu = 2130968642;
+			
+			// aapt resource value: 0x7f040041
+			public const int resLbs = 2130968641;
 			
 			// aapt resource value: 0x7f040043
-			public const int resLossValue = 2130968643;
+			public const int resLossPercent = 2130968643;
+			
+			// aapt resource value: 0x7f040044
+			public const int resLossValue = 2130968644;
 			
 			// aapt resource value: 0x7f040001
 			public const int right = 2130968577;
 			
-			// aapt resource value: 0x7f040038
-			public const int rootLayout1 = 2130968632;
+			// aapt resource value: 0x7f040039
+			public const int rootLayout1 = 2130968633;
 			
 			// aapt resource value: 0x7f040004
 			public const int selected_view = 2130968580;
@@ -1074,14 +1074,17 @@ namespace HLAndroid
 			// aapt resource value: 0x7f04000c
 			public const int showTitle = 2130968588;
 			
-			// aapt resource value: 0x7f040046
-			public const int slidingmenumain = 2130968646;
+			// aapt resource value: 0x7f040047
+			public const int slidingmenumain = 2130968647;
 			
 			// aapt resource value: 0x7f040008
 			public const int tabMode = 2130968584;
 			
-			// aapt resource value: 0x7f04003e
-			public const int tvSeedLoss = 2130968638;
+			// aapt resource value: 0x7f040015
+			public const int textView1 = 2130968597;
+			
+			// aapt resource value: 0x7f04003f
+			public const int tvSeedLoss = 2130968639;
 			
 			// aapt resource value: 0x7f040009
 			public const int useLogo = 2130968585;
@@ -1119,91 +1122,94 @@ namespace HLAndroid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int abs__action_bar_home = 2130903040;
+			public const int AboutLayout = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int abs__action_bar_tab = 2130903041;
+			public const int abs__action_bar_home = 2130903041;
 			
 			// aapt resource value: 0x7f030002
-			public const int abs__action_bar_tab_bar_view = 2130903042;
+			public const int abs__action_bar_tab = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int abs__action_bar_title_item = 2130903043;
+			public const int abs__action_bar_tab_bar_view = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int abs__action_menu_item_layout = 2130903044;
+			public const int abs__action_bar_title_item = 2130903044;
 			
 			// aapt resource value: 0x7f030005
-			public const int abs__action_menu_layout = 2130903045;
+			public const int abs__action_menu_item_layout = 2130903045;
 			
 			// aapt resource value: 0x7f030006
-			public const int abs__action_mode_bar = 2130903046;
+			public const int abs__action_menu_layout = 2130903046;
 			
 			// aapt resource value: 0x7f030007
-			public const int abs__action_mode_close_item = 2130903047;
+			public const int abs__action_mode_bar = 2130903047;
 			
 			// aapt resource value: 0x7f030008
-			public const int abs__activity_chooser_view = 2130903048;
+			public const int abs__action_mode_close_item = 2130903048;
 			
 			// aapt resource value: 0x7f030009
-			public const int abs__activity_chooser_view_list_item = 2130903049;
+			public const int abs__activity_chooser_view = 2130903049;
 			
 			// aapt resource value: 0x7f03000a
-			public const int abs__dialog_title_holo = 2130903050;
+			public const int abs__activity_chooser_view_list_item = 2130903050;
 			
 			// aapt resource value: 0x7f03000b
-			public const int abs__list_menu_item_checkbox = 2130903051;
+			public const int abs__dialog_title_holo = 2130903051;
 			
 			// aapt resource value: 0x7f03000c
-			public const int abs__list_menu_item_icon = 2130903052;
+			public const int abs__list_menu_item_checkbox = 2130903052;
 			
 			// aapt resource value: 0x7f03000d
-			public const int abs__list_menu_item_layout = 2130903053;
+			public const int abs__list_menu_item_icon = 2130903053;
 			
 			// aapt resource value: 0x7f03000e
-			public const int abs__list_menu_item_radio = 2130903054;
+			public const int abs__list_menu_item_layout = 2130903054;
 			
 			// aapt resource value: 0x7f03000f
-			public const int abs__popup_menu_item_layout = 2130903055;
+			public const int abs__list_menu_item_radio = 2130903055;
 			
 			// aapt resource value: 0x7f030010
-			public const int abs__screen_action_bar = 2130903056;
+			public const int abs__popup_menu_item_layout = 2130903056;
 			
 			// aapt resource value: 0x7f030011
-			public const int abs__screen_action_bar_overlay = 2130903057;
+			public const int abs__screen_action_bar = 2130903057;
 			
 			// aapt resource value: 0x7f030012
-			public const int abs__screen_simple = 2130903058;
+			public const int abs__screen_action_bar_overlay = 2130903058;
 			
 			// aapt resource value: 0x7f030013
-			public const int abs__screen_simple_overlay_action_mode = 2130903059;
+			public const int abs__screen_simple = 2130903059;
 			
 			// aapt resource value: 0x7f030014
-			public const int abs__search_dropdown_item_icons_2line = 2130903060;
+			public const int abs__screen_simple_overlay_action_mode = 2130903060;
 			
 			// aapt resource value: 0x7f030015
-			public const int abs__search_view = 2130903061;
+			public const int abs__search_dropdown_item_icons_2line = 2130903061;
 			
 			// aapt resource value: 0x7f030016
-			public const int abs__simple_dropdown_hint = 2130903062;
+			public const int abs__search_view = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int Main = 2130903063;
+			public const int abs__simple_dropdown_hint = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int MainFragContainer = 2130903064;
+			public const int Main = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int Menu = 2130903065;
+			public const int MainFragContainer = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int sherlock_spinner_dropdown_item = 2130903066;
+			public const int Menu = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int sherlock_spinner_item = 2130903067;
+			public const int sherlock_spinner_dropdown_item = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int slidingmenumain = 2130903068;
+			public const int sherlock_spinner_item = 2130903068;
+			
+			// aapt resource value: 0x7f03001d
+			public const int slidingmenumain = 2130903069;
 			
 			static Layout()
 			{
