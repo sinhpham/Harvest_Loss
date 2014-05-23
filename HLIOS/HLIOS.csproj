@@ -107,14 +107,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Screens\CalcDVC.cs" />
-    <Compile Include="Screens\HelpVC.cs" />
-    <Compile Include="Screens\HelpVC.designer.cs">
-      <DependentUpon>HelpVC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\AboutVC.cs" />
-    <Compile Include="Screens\AboutVC.designer.cs">
-      <DependentUpon>AboutVC.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Screens\AboutDVC.cs" />
+    <Compile Include="Screens\HelpDVC.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -154,11 +148,5 @@
     <BundleResource Include="Resources\Default-Portrait.png" />
     <BundleResource Include="Resources\Default-Landscape%402x.png" />
     <BundleResource Include="Resources\Default-Landscape.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Screens\HelpVC_iPhone.xib" />
-    <InterfaceDefinition Include="Screens\HelpVC_iPad.xib" />
-    <InterfaceDefinition Include="Screens\AboutVC_iPhone.xib" />
-    <InterfaceDefinition Include="Screens\AboutVC_iPad.xib" />
   </ItemGroup>
 </Project>

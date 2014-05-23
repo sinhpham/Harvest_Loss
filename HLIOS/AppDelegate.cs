@@ -75,13 +75,13 @@ namespace HLIOS
                 new StringElement("Help", () =>
                 {
                     NavigationController.PopToRootViewController(false);
-                    NavigationController.PushViewController(new HelpVC(), true);
+                    NavigationController.PushViewController(new HelpDVC(), true);
 
                 }),
                 new StringElement("About", () =>
                 {
                     NavigationController.PopToRootViewController(false);
-                    NavigationController.PushViewController(new AboutVC(), true);
+                    NavigationController.PushViewController(new AboutDVC(), true);
                 })
             });
         }
