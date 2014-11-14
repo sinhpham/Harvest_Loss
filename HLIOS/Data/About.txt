@@ -1,1 +1,19 @@
-Acknowledgements  About Harvest Loss App:  This App is developed for seed harvesting operators and managers to help them quantify and correct losses, leading to improved returns and harvesting efficiency.  This app was programmed by Sinh Pham (phamansinh@gmail.com) and designed by Tom Wolf with assistance from Les Hill at the Prairie Agricultural Machinery Institute (PAMI), and inspiration from Klaus Wolf.  Project Funding Agency:  This project was funded in part by the Saskatchewan Soil Conservation Association (SSCA), by the Canadian Agricultural Adaptation Program (CAAP) administered by the Agriculture Council of Saskatchewan (ACS), and by the University of Saskatchewan.  Project Leads:    Dr. Tom Wolf and Dr. Ralph Deters  Disclaimer:  The calculations in this app are intended as a guide only.  The Authors, SSCA, ACS, or U of S shall have no liability related to erroneous results.
+Acknowledgements
+
+About Harvest Loss App:
+
+This App is developed for seed harvesting operators and managers to help them quantify and correct losses, leading to improved returns and harvesting efficiency.
+
+This app was programmed by Sinh Pham (phamansinh@gmail.com) and designed by Tom Wolf with assistance from Les Hill at the Prairie Agricultural Machinery Institute (PAMI), and inspiration from Klaus Wolf.
+
+Project Funding Agency:
+
+This project was funded in part by the Saskatchewan Soil Conservation Association (SSCA), by the Canadian Agricultural Adaptation Program (CAAP) administered by the Agriculture Council of Saskatchewan (ACS), and by the University of Saskatchewan.
+
+Project Leads:  
+
+Dr. Tom Wolf and Dr. Ralph Deters
+
+Disclaimer:
+
+The calculations in this app are intended as a guide only.  The Authors, SSCA, ACS, or U of S shall have no liability related to erroneous results.

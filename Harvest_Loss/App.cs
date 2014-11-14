@@ -7,15 +7,7 @@ namespace Harvest_Loss
     {
         public static Page GetMainPage()
         {	
-            return new ContentPage
-            { 
-                Content = new Label
-                {
-                    Text = "Hello, Forms!",
-                    VerticalOptions = LayoutOptions.CenterAndExpand,
-                    HorizontalOptions = LayoutOptions.CenterAndExpand,
-                },
-            };
+            return new RootPage();
         }
     }
 }
