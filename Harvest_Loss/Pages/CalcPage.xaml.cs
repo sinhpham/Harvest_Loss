@@ -1,15 +1,17 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace Harvest_Loss
-{	
-	public partial class CalcPage : ContentPage
-	{	
-		public CalcPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+{
+    public partial class CalcPage : ContentPage
+    {
+        public CalcPage()
+        {
+            InitializeComponent();
+
+            BindingContext = App.CalcVM;
+        }
+    }
 }
 

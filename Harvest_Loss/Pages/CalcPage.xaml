@@ -17,10 +17,10 @@
 				<EntryCell XAlign="End" Keyboard="Numeric" Label="Seed loss (g)" />
 			</TableSection>
 			<TableSection Title="Results">
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (bu)" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss (%)" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss value ($/acre)" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" Text="{Binding LossPerAcreLbs}" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (bu)" Text="{Binding LossPerAcreLbs}" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss (%)" Text="{Binding LossPercent}" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss value ($/acre)" Text="{Binding LossValue}" />
 			</TableSection>
 		</TableView>
 	</ContentPage.Content>
