@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Harvest_Loss.CalcPage">
+	<ContentPage.Content>
+		<TableView Intent="Form">
+			<TableSection Title="Input">
+				<ViewCell>
+					<Picker Title="Method" />
+				</ViewCell>
+				<ViewCell>
+					<Picker Title="Crop" />
+				</ViewCell>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" />
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Sieve width (in)" />
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" />
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" />
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" />
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Seed loss (g)" />
+			</TableSection>
+			<TableSection Title="Results">
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (bu)" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss (%)" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss value ($/acre)" />
+			</TableSection>
+		</TableView>
+	</ContentPage.Content>
+</ContentPage>

@@ -9,9 +9,9 @@ namespace Harvest_Loss
         public MenuPage()
         {
             menuItems = new List<MenuItem>();
-            menuItems.Add(new MenuItem("Main", () => new ContentPage()));
-            menuItems.Add(new MenuItem("About", () => new ContentPage()));
-            menuItems.Add(new MenuItem("Help", () => new ContentPage()));
+            menuItems.Add(new MenuItem("Main", () => new CalcPage()));
+            menuItems.Add(new MenuItem("About", () => new AboutPage()));
+            menuItems.Add(new MenuItem("Help", () => new HelpPage()));
 
             _chosenItemCmd = new Command(obj =>
             {
