@@ -47,6 +47,8 @@
     </Compile>
     <Compile Include="NotifyingClass.cs" />
     <Compile Include="ViewModels\CalcVM.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Models\Crop.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.2.3.6257\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10\Xamarin.Forms.targets')" />
@@ -64,6 +66,8 @@
   <ItemGroup>
     <Folder Include="Pages\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\AboutPage.xaml">
@@ -75,5 +79,6 @@
     <EmbeddedResource Include="Pages\CalcPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\CropData.txt" />
   </ItemGroup>
 </Project>

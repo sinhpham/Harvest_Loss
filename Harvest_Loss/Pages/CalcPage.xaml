@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Harvest_Loss.CalcPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Harvest_Loss;assembly=Harvest_Loss" x:Class="Harvest_Loss.CalcPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:MethodToPickerIdxCov x:Key="methodToPIdxCov" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<TableView Intent="Form">
 			<TableSection Title="Input">
 				<ViewCell>
-					<Picker Title="Method" />
+					<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" />
 				</ViewCell>
 				<ViewCell>
 					<Picker Title="Crop" />

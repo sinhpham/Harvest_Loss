@@ -1860,7 +1860,7 @@ namespace HLAndroid
 					16843362,
 					16843436,
 					16843437,
-					16843834};
+					16843954};
 			
 			// aapt resource value: 5
 			public const int SherlockSpinner_android_dropDownHorizontalOffset = 5;

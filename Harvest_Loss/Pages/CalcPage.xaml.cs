@@ -11,6 +11,12 @@ namespace Harvest_Loss
             InitializeComponent();
 
             BindingContext = App.CalcVM;
+
+
+            foreach (var item in MethodToPickerIdxCov.Names)
+            {
+                _methodPicker.Items.Add(item);
+            }
         }
     }
 }

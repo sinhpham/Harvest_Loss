@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using System.Collections.Generic;
 
 namespace Harvest_Loss
 {
@@ -9,6 +11,47 @@ namespace Harvest_Loss
             LossPerAcreLbs = 1;
             LossPercent = 10;
             LossValue = 50;
+
+            _crops = new List<Crop>();
+
+            var assembly = typeof(CalcVM).GetTypeInfo().Assembly;
+            using (var stream = assembly.GetManifestResourceStream("Harvest_Loss.Data.CropData.txt"))
+            {
+                var lines = Helpers.ReadLines(stream, System.Text.Encoding.UTF8);
+                foreach (var line in lines)
+                {
+                    var str = line.Split(new char[] { ',' });
+
+                    var currCrop = new Crop
+                    {
+                        Name = str[0],
+                        LbsPBushel = double.Parse(str[1]),
+                        BushelPTonne = double.Parse(str[2]),
+                        KgPBushel = double.Parse(str[3]),
+                        KernelWeight = double.Parse(str[4])
+                    };
+
+                    _crops.Add(currCrop);
+                }
+            }
+        }
+
+        Method _currMethod;
+
+        public Method CurrMethod
+        {
+            get { return _currMethod; }
+            set { SetProperty(ref _currMethod, value); }
+        }
+
+        List<Crop> _crops;
+
+        Crop _currCrop;
+
+        public Crop CurrCrop
+        {
+            get { return _currCrop; }
+            set { SetProperty(ref _currCrop, value); }
         }
 
         double _cutWidth;
@@ -81,6 +124,13 @@ namespace Harvest_Loss
         {
             get { return _lossValue; }
             set { SetProperty(ref _lossValue, value); }
+        }
+
+        public enum Method
+        {
+            Weight,
+            Volume,
+            Count
         }
     }
 }
