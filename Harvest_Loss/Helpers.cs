@@ -21,6 +21,27 @@ namespace Harvest_Loss
                 }
             }
         }
+
+        static public double InchToFeet(double valueInInch)
+        {
+            return valueInInch / 12;
+        }
+
+        static public double SquareFeetToMeters(double valueInSF)
+        {
+            return valueInSF * 0.09290304;
+        }
+
+        static public double KgPHaToLbsPAcre(double valueInKgPHa)
+        {
+            return valueInKgPHa / 1.12;
+        }
+
+        static public double MlToG(double valueInMl, double KgPerBu)
+        {
+            var ret = valueInMl * KgPerBu / 36.369;
+            return ret;
+        }
     }
 
     public class EnumExt<T>
@@ -103,6 +124,29 @@ namespace Harvest_Loss
 
     }
 
+    public class NullableDoubleToStrCov : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            var val = (Nullable<double>)value;
+            if (val.HasValue)
+            {
+                return val.Value;
+            }
+            return null;
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            double? ret;
+            var str = (string)value;
+            if (string.IsNullOrEmpty(str))
+            {
+                return ret;
+            }
+            ret = double.Parse(str);
+            return ret;
+        }
+    }
 }
 

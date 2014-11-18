@@ -3,6 +3,7 @@
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<local:MethodToPickerIdxCov x:Key="methodToPIdxCov" />
+			<local:NullableDoubleToStrCov x:Key="nullableToStrCov" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
@@ -12,20 +13,20 @@
 					<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" />
 				</ViewCell>
 				<ViewCell>
-					<Picker Title="Crop" />
+					<Button x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" />
 				</ViewCell>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" />
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Sieve width (in)" />
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" />
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" />
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" />
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Seed loss (g)" />
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" Text="{Binding CutWidth, Converter={StaticResource nullableToStrCov}}"/>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Sieve width (in)" Text="{Binding SieveWidth, Converter={StaticResource nullableToStrCov}}"/>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" Text="{Binding CollectingArea, Converter={StaticResource nullableToStrCov}}"/>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" Text="{Binding ExpectedYield, Converter={StaticResource nullableToStrCov}}"/>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" Text="{Binding Price, Converter={StaticResource nullableToStrCov}}"/>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="Seed loss (g)" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}"/>
 			</TableSection>
 			<TableSection Title="Results">
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" Text="{Binding LossPerAcreLbs}" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}'}" />
 				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (bu)" Text="{Binding LossPerAcreLbs}" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss (%)" Text="{Binding LossPercent}" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss value ($/acre)" Text="{Binding LossValue}" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss (%)" Text="{Binding LossPercent, StringFormat='{0:P}'}" />
+				<EntryCell XAlign="End" IsEnabled="false" Label="Loss value ($/acre)" Text="{Binding LossValue, StringFormat='{0:C}'}" />
 			</TableSection>
 		</TableView>
 	</ContentPage.Content>

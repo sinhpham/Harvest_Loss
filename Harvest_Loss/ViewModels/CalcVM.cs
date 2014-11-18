@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Harvest_Loss
 {
@@ -8,10 +9,6 @@ namespace Harvest_Loss
     {
         public CalcVM()
         {
-            LossPerAcreLbs = 1;
-            LossPercent = 10;
-            LossValue = 50;
-
             _crops = new List<Crop>();
 
             var assembly = typeof(CalcVM).GetTypeInfo().Assembly;
@@ -36,91 +33,130 @@ namespace Harvest_Loss
             }
         }
 
+        // Input.
         Method _currMethod;
 
         public Method CurrMethod
         {
             get { return _currMethod; }
-            set { SetProperty(ref _currMethod, value); }
+            set
+            {
+                SetProperty(ref _currMethod, value);
+                RefreshResult();
+            }
         }
 
         List<Crop> _crops;
+
+        public List<Crop> Crops
+        {
+            get { return _crops; }
+        }
 
         Crop _currCrop;
 
         public Crop CurrCrop
         {
             get { return _currCrop; }
-            set { SetProperty(ref _currCrop, value); }
+            set
+            {
+                SetProperty(ref _currCrop, value);
+                RefreshResult();
+            }
         }
 
-        double _cutWidth;
+        double? _cutWidth;
 
-        public double CutWidth
+        public double? CutWidth
         {
             get { return _cutWidth; }
-            set { SetProperty(ref _cutWidth, value); }
+            set
+            {
+                SetProperty(ref _cutWidth, value);
+                RefreshResult();
+            }
         }
 
-        double _sieveWidth;
+        double? _sieveWidth;
 
-        public double SieveWidth
+        public double? SieveWidth
         {
             get { return _sieveWidth; }
-            set { SetProperty(ref _sieveWidth, value); }
+            set
+            {
+                SetProperty(ref _sieveWidth, value);
+                RefreshResult();
+            }
         }
 
-        double _collectingArea;
+        double? _collectingArea;
 
-        public double CollectingArea
+        public double? CollectingArea
         {
             get { return _collectingArea; }
-            set { SetProperty(ref _collectingArea, value); }
+            set
+            {
+                SetProperty(ref _collectingArea, value);
+                RefreshResult();
+            }
         }
 
-        double _expectedYield;
+        double? _expectedYield;
 
-        public double ExpectedYield
+        public double? ExpectedYield
         {
             get { return _expectedYield; }
-            set { SetProperty(ref _expectedYield, value); }
+            set
+            {
+                SetProperty(ref _expectedYield, value);
+                RefreshResult();
+            }
         }
 
-        double _price;
+        double? _price;
 
-        public double Price
+        public double? Price
         {
             get { return _price; }
-            set { SetProperty(ref _price, value); }
+            set
+            {
+                SetProperty(ref _price, value);
+                RefreshResult();
+            }
         }
 
-        double _seedLoss;
+        double? _seedLoss;
 
-        public double SeedLoss
+        public double? SeedLoss
         {
             get { return _seedLoss; }
-            set { SetProperty(ref _seedLoss, value); }
+            set
+            {
+                SetProperty(ref _seedLoss, value);
+                RefreshResult();
+            }
         }
 
-        double _lossPerAcreLbs;
+        // Results.
+        double? _lossPerAcreLbs;
 
-        public double LossPerAcreLbs
+        public double? LossPerAcreLbs
         {
             get { return _lossPerAcreLbs; }
             set { SetProperty(ref _lossPerAcreLbs, value); }
         }
 
-        double _lossPercent;
+        double? _lossPercent;
 
-        public double LossPercent
+        public double? LossPercent
         {
             get { return _lossPercent; }
             set { SetProperty(ref _lossPercent, value); }
         }
 
-        double _lossValue;
+        double? _lossValue;
 
-        public double LossValue
+        public double? LossValue
         {
             get { return _lossValue; }
             set { SetProperty(ref _lossValue, value); }
@@ -131,6 +167,59 @@ namespace Harvest_Loss
             Weight,
             Volume,
             Count
+        }
+
+        void RefreshResult()
+        {
+            // Clear all values first.
+            LossPerAcreLbs = null;
+            LossPercent = null;
+            LossValue = null;
+
+            if (CutWidth == null || SieveWidth == null || SeedLoss == null ||
+                CollectingArea == null || CurrCrop == null)
+            {
+                return;
+            }
+            var currSeedLossInG = SeedLoss.Value;
+            if (CurrMethod == Method.Count)
+            {
+                currSeedLossInG = SeedLoss.Value * _currCrop.KernelWeight / 1000;
+            }
+            else if (CurrMethod == Method.Volume)
+            {
+                currSeedLossInG = Helpers.MlToG(SeedLoss.Value, _currCrop.KgPBushel);
+            }
+
+
+            var concenFactor = CutWidth.Value / Helpers.InchToFeet(SieveWidth.Value);
+
+            var collectingAreasi = Helpers.SquareFeetToMeters(CollectingArea.Value);
+
+            var lph = 10 * currSeedLossInG / concenFactor / collectingAreasi;
+            var lpalbs = Helpers.KgPHaToLbsPAcre(lph);
+
+            Debug.WriteLine("Loss per ha: {0}", lph);
+            Debug.WriteLine("Loss per acre lbs: {0}", lpalbs);
+
+            LossPerAcreLbs = lpalbs;
+
+            var lpabu = lpalbs / CurrCrop.LbsPBushel;
+//            Debug.WriteLine("Loss per acre bu: {0}", lpabu);
+//            _lpaBu.Value = lpabu.ToString("F");
+
+            if (ExpectedYield.HasValue)
+            {
+                LossPercent = lpabu / ExpectedYield.Value;
+                Debug.WriteLine("Percent loss: {0}", LossPercent);
+            }
+
+
+            if (Price.HasValue)
+            {
+                LossValue = Price.Value * lpabu;
+                Debug.WriteLine("Loss value: {0}", LossPercent);
+            }
         }
     }
 }
