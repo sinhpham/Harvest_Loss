@@ -18,6 +18,8 @@ namespace Harvest_Loss
                 _methodPicker.Items.Add(item);
             }
 
+            _methodPicker.SelectedIndex = 0;
+
             _cropPicker.Clicked += (object sender, EventArgs e) =>
             {
                 Navigation.PushAsync(new CropList());

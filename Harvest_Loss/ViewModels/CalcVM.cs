@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace Harvest_Loss
 {
@@ -31,6 +32,8 @@ namespace Harvest_Loss
                     _crops.Add(currCrop);
                 }
             }
+
+            CurrMethod = Method.Weight;
         }
 
         // Input.
@@ -220,6 +223,29 @@ namespace Harvest_Loss
                 LossValue = Price.Value * lpabu;
                 Debug.WriteLine("Loss value: {0}", LossPercent);
             }
+        }
+    }
+
+    public class CurrMethodToUnitCov : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            var m = (CalcVM.Method)value;
+            switch (m)
+            {
+                case CalcVM.Method.Weight:
+                    return "g";
+                case CalcVM.Method.Volume:
+                    return "ml";
+                case CalcVM.Method.Count:
+                    return "number";
+            }
+            throw new InvalidOperationException();
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }

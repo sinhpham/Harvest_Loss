@@ -3,6 +3,7 @@
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<local:MethodToPickerIdxCov x:Key="methodToPIdxCov" />
+			<local:CurrMethodToUnitCov x:Key="currMethodToUnitCov" />
 			<local:NullableDoubleToStrCov x:Key="nullableToStrCov" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
@@ -20,7 +21,7 @@
 				<EntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" Text="{Binding CollectingArea, Converter={StaticResource nullableToStrCov}}"/>
 				<EntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" Text="{Binding ExpectedYield, Converter={StaticResource nullableToStrCov}}"/>
 				<EntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" Text="{Binding Price, Converter={StaticResource nullableToStrCov}}"/>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Seed loss (g)" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}"/>
+				<EntryCell XAlign="End" Keyboard="Numeric" Label="{Binding CurrMethod, Converter={StaticResource currMethodToUnitCov}, StringFormat='Seed loss ({0})'}" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}"/>
 			</TableSection>
 			<TableSection Title="Results">
 				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}'}" />
