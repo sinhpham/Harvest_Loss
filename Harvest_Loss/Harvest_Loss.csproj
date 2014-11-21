@@ -86,5 +86,7 @@
     <EmbeddedResource Include="Pages\CropList.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Data\About.txt" />
+    <EmbeddedResource Include="Data\Help.txt" />
   </ItemGroup>
 </Project>

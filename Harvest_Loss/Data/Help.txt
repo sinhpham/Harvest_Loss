@@ -1,0 +1,26 @@
+﻿Measuring Harvesting Losses
+This app can help estimate seed losses during harvest by converting the seed amount from a known sampling area to a loss per acre.  It can be used for combine operation, or for other shattering losses.
+
+Combine Losses:
+1. Be sure to turn off the chopper/spreader so all combine losses are concentrated over the sieve width only
+2. Place collection pan under combine during normal operation and allow sieve and straw residue to deposit.
+3. Remove straw and clean sample in pan
+4. Measure weight or volume of seed in sample, or count seeds
+5. Start Harvest Loss app
+6. Choose Loss Assessment Method
+7. Select Crop.  The app chooses the bushel weight and seed weight.  Seed weight can be changed.
+8. Enter the cut width in feet
+9. Enter the sieve width in inches
+The app calculates the concentration factor (cut/sieve) from these measurements
+
+10. Enter Collecting Area in square feet
+11. Enter Seed Loss value according to the selected Assessment Method
+12. "Yield" and "Price" entries are optional
+13. Output is calculated
+14. The "Back" button reverts to the previous screen without erasing values, allowing for successive measurements
+
+Shattering Losses:
+1. Choose any Assessment Method
+2. Select Cut and Sieve widths that result in a Concentration factor of 1.0, recalling the units of each, i.e., Cut = 1 ft, Sieve = 12 In
+3. Proceed as above
+

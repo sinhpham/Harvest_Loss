@@ -1,15 +1,27 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
+using System.Reflection;
+using System.IO;
 
 namespace Harvest_Loss
-{	
-	public partial class HelpPage : ContentPage
-	{	
-		public HelpPage ()
-		{
-			InitializeComponent ();
-		}
-	}
+{
+    public partial class HelpPage : ContentPage
+    {
+        public HelpPage()
+        {
+            InitializeComponent();
+
+            var assembly = typeof(CalcVM).GetTypeInfo().Assembly;
+            using (var stream = assembly.GetManifestResourceStream("Harvest_Loss.Data.Help.txt"))
+            {
+                using (var sr = new StreamReader(stream))
+                {
+                    var text = sr.ReadToEnd();
+                    _label.Text = text;
+                }
+            }
+        }
+    }
 }
 
