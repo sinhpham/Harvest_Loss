@@ -11,15 +11,21 @@
 		<TableView Intent="Form">
 			<TableSection Title="Input">
 				<ViewCell>
-					<StackLayout Orientation="Horizontal" Padding="15,0,0,0">
-						<Label Text="Method" VerticalOptions="Center"/>
-						<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+					<StackLayout Orientation="Horizontal">
+						<StackLayout.Padding>
+							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 0, 0" />
+						</StackLayout.Padding>
+						<Label Text="Method" VerticalOptions="Center" Font="Large" TextColor="White"/>
+						<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
 					</StackLayout>
 				</ViewCell>
 				<ViewCell>
-					<StackLayout Orientation="Horizontal" Padding="15,0,0,0">
-						<Label Text="Crop" VerticalOptions="Center"/>
-						<Button x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" />
+					<StackLayout Orientation="Horizontal">
+						<StackLayout.Padding>
+							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 0, 0" />
+						</StackLayout.Padding>
+						<Label Text="Crop" VerticalOptions="Center" Font="Large" TextColor="White"/>
+						<Button x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" HorizontalOptions="FillAndExpand" />
 					</StackLayout>
 				</ViewCell>
 				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" Text="{Binding CutWidth, Converter={StaticResource nullableToStrCov}}" />

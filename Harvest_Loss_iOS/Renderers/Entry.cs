@@ -27,7 +27,7 @@ namespace Harvest_Loss_iOS
         /// </summary>
         protected void AddDoneButton(UITextField uiTextField)
         {
-            UIToolbar toolbar = new UIToolbar(new RectangleF(0.0f, 0.0f, 50.0f, 44.0f));
+            var toolbar = new UIToolbar(new RectangleF(0.0f, 0.0f, 50.0f, 44.0f));
 
             var doneButton = new UIBarButtonItem(UIBarButtonSystemItem.Done, delegate
             {
