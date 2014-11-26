@@ -11,17 +11,23 @@
 		<TableView Intent="Form">
 			<TableSection Title="Input">
 				<ViewCell>
-					<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" />
+					<StackLayout Orientation="Horizontal" Padding="15,0,0,0">
+						<Label Text="Method" VerticalOptions="Center"/>
+						<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+					</StackLayout>
 				</ViewCell>
 				<ViewCell>
-					<Button x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" />
+					<StackLayout Orientation="Horizontal" Padding="15,0,0,0">
+						<Label Text="Crop" VerticalOptions="Center"/>
+						<Button x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" />
+					</StackLayout>
 				</ViewCell>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" Text="{Binding CutWidth, Converter={StaticResource nullableToStrCov}}"/>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Sieve width (in)" Text="{Binding SieveWidth, Converter={StaticResource nullableToStrCov}}"/>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" Text="{Binding CollectingArea, Converter={StaticResource nullableToStrCov}}"/>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" Text="{Binding ExpectedYield, Converter={StaticResource nullableToStrCov}}"/>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" Text="{Binding Price, Converter={StaticResource nullableToStrCov}}"/>
-				<EntryCell XAlign="End" Keyboard="Numeric" Label="{Binding CurrMethod, Converter={StaticResource currMethodToUnitCov}, StringFormat='Seed loss ({0})'}" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}"/>
+				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" Text="{Binding CutWidth, Converter={StaticResource nullableToStrCov}}" />
+				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Sieve width (in)" Text="{Binding SieveWidth, Converter={StaticResource nullableToStrCov}}" />
+				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" Text="{Binding CollectingArea, Converter={StaticResource nullableToStrCov}}" />
+				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" Text="{Binding ExpectedYield, Converter={StaticResource nullableToStrCov}}" />
+				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" Text="{Binding Price, Converter={StaticResource nullableToStrCov}}" />
+				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="{Binding CurrMethod, Converter={StaticResource currMethodToUnitCov}, StringFormat='Seed loss ({0})'}" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}" />
 			</TableSection>
 			<TableSection Title="Results">
 				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}'}" />

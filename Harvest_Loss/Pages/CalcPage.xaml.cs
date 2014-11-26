@@ -25,7 +25,12 @@ namespace Harvest_Loss
                 Navigation.PushAsync(new CropList());
             };
 
+
         }
+    }
+
+    public class DoneEntryCell : EntryCell
+    {
     }
 }
 
