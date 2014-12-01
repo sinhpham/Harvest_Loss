@@ -149,6 +149,14 @@ namespace Harvest_Loss
             set { SetProperty(ref _lossPerAcreLbs, value); }
         }
 
+        double? _lossPerAcreBu;
+
+        public double? LossPerAcreBu
+        {
+            get { return _lossPerAcreBu; }
+            set { SetProperty(ref _lossPerAcreBu, value); }
+        }
+
         double? _lossPercent;
 
         public double? LossPercent
@@ -176,6 +184,7 @@ namespace Harvest_Loss
         {
             // Clear all values first.
             LossPerAcreLbs = null;
+            LossPerAcreBu = null;
             LossPercent = null;
             LossValue = null;
 
@@ -202,26 +211,27 @@ namespace Harvest_Loss
             var lph = 10 * currSeedLossInG / concenFactor / collectingAreasi;
             var lpalbs = Helpers.KgPHaToLbsPAcre(lph);
 
+            Debug.WriteLine("---got results---");
             Debug.WriteLine("Loss per ha: {0}", lph);
             Debug.WriteLine("Loss per acre lbs: {0}", lpalbs);
 
             LossPerAcreLbs = lpalbs;
 
-            var lpabu = lpalbs / CurrCrop.LbsPBushel;
+            LossPerAcreBu = lpalbs / CurrCrop.LbsPBushel;
 //            Debug.WriteLine("Loss per acre bu: {0}", lpabu);
 //            _lpaBu.Value = lpabu.ToString("F");
 
             if (ExpectedYield.HasValue)
             {
-                LossPercent = lpabu / ExpectedYield.Value;
+                LossPercent = LossPerAcreBu / ExpectedYield.Value;
                 Debug.WriteLine("Percent loss: {0}", LossPercent);
             }
 
 
             if (Price.HasValue)
             {
-                LossValue = Price.Value * lpabu;
-                Debug.WriteLine("Loss value: {0}", LossPercent);
+                LossValue = Price.Value * LossPerAcreBu;
+                Debug.WriteLine("Loss value: {0}", LossValue);
             }
         }
     }
