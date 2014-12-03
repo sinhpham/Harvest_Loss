@@ -30,6 +30,7 @@
     <ConsolePause>false</ConsolePause>
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
     <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>

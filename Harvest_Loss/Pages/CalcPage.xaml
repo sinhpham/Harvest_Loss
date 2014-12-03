@@ -41,57 +41,101 @@
 			</TableSection>
 			<TableSection Title="Results">
 				<ViewCell>
-					<StackLayout Orientation="Horizontal">
-						<StackLayout.Padding>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="100" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.Padding>
 							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</StackLayout.Padding>
-						<Label Text="{Binding LossPerAcreLbs, StringFormat='Loss per acre (lbs): {0:F2}', Mode=OneWay}" Font="Large" VerticalOptions="Center">
+						</Grid.Padding>
+						<Label Text="Loss per acre (lbs):" Font="Large" YAlign="Center">
 							<Label.TextColor>
 								<OnPlatform x:TypeArguments="Color" Android="White" />
 							</Label.TextColor>
 						</Label>
-					</StackLayout>
+						<Label Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
+							<Label.TextColor>
+								<OnPlatform x:TypeArguments="Color" Android="White" />
+							</Label.TextColor>
+						</Label>
+					</Grid>
 				</ViewCell>
 				<ViewCell>
-					<StackLayout Orientation="Horizontal">
-						<StackLayout.Padding>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="100" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.Padding>
 							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</StackLayout.Padding>
-						<Label Text="{Binding LossPerAcreBu, StringFormat='Loss per acre (bu): {0:F2}', Mode=OneWay}" Font="Large" VerticalOptions="Center">
+						</Grid.Padding>
+						<Label Text="Loss per acre (bu):" Font="Large" YAlign="Center">
 							<Label.TextColor>
 								<OnPlatform x:TypeArguments="Color" Android="White" />
 							</Label.TextColor>
 						</Label>
-					</StackLayout>
+						<Label Text="{Binding LossPerAcreBu, StringFormat='{0:F2}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
+							<Label.TextColor>
+								<OnPlatform x:TypeArguments="Color" Android="White" />
+							</Label.TextColor>
+						</Label>
+					</Grid>
 				</ViewCell>
 				<ViewCell>
-					<StackLayout Orientation="Horizontal">
-						<StackLayout.Padding>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="100" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.Padding>
 							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</StackLayout.Padding>
-						<Label Text="{Binding LossPercent, StringFormat='Loss (%): {0:P}', Mode=OneWay}" Font="Large" VerticalOptions="Center">
+						</Grid.Padding>
+						<Label Text="Loss (%):" Font="Large" YAlign="Center">
 							<Label.TextColor>
 								<OnPlatform x:TypeArguments="Color" Android="White" />
 							</Label.TextColor>
 						</Label>
-					</StackLayout>
+						<Label Text="{Binding LossPercent, StringFormat='{0:P}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
+							<Label.TextColor>
+								<OnPlatform x:TypeArguments="Color" Android="White" />
+							</Label.TextColor>
+						</Label>
+					</Grid>
 				</ViewCell>
 				<ViewCell>
-					<StackLayout Orientation="Horizontal">
-						<StackLayout.Padding>
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="100" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Grid.Padding>
 							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</StackLayout.Padding>
-						<Label Text="{Binding LossValue, StringFormat='Loss value ($/acre): {0:C}', Mode=OneWay}" Font="Large" VerticalOptions="Center">
+						</Grid.Padding>
+						<Label Text="Loss value ($/acre):" Font="Large" YAlign="Center">
 							<Label.TextColor>
 								<OnPlatform x:TypeArguments="Color" Android="White" />
 							</Label.TextColor>
 						</Label>
-					</StackLayout>
+						<Label Text="{Binding LossValue, StringFormat='{0:C}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
+							<Label.TextColor>
+								<OnPlatform x:TypeArguments="Color" Android="White" />
+							</Label.TextColor>
+						</Label>
+					</Grid>
 				</ViewCell>
-				<!--				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (lbs)" Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}', Mode=OneWay}" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss per acre (bu)" Text="{Binding LossPerAcreBu, StringFormat='{0:F2}', Mode=OneWay}" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss (%)" Text="{Binding LossPercent, StringFormat='{0:P}', Mode=OneWay}" />
-				<EntryCell XAlign="End" IsEnabled="false" Label="Loss value ($/acre)" Text="{Binding LossValue, StringFormat='{0:C}', Mode=OneWay}" />-->
 			</TableSection>
 		</TableView>
 	</ContentPage.Content>
