@@ -12,7 +12,7 @@ using Harvest_Loss;
 
 namespace Harvest_Loss_Android
 {
-    [Activity(Label = "Harvest_Loss_Android", MainLauncher = true, Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Harvest Loss", MainLauncher = true, Icon = "@drawable/icon", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : AndroidActivity
     {
         protected override void OnCreate(Bundle bundle)
