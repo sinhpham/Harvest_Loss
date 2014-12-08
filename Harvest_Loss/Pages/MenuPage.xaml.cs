@@ -1,18 +1,13 @@
 ﻿using System;
-using Xamarin.Forms;
 using System.Collections.Generic;
+using Xamarin.Forms;
 
 namespace Harvest_Loss
 {
-    public class MenuPage : ContentPage
+    public partial class MenuPage : ContentPage
     {
         public MenuPage()
         {
-            menuItems = new List<MenuItem>();
-            menuItems.Add(new MenuItem("Main", () => new CalcPage()));
-            menuItems.Add(new MenuItem("About", () => new AboutPage()));
-            menuItems.Add(new MenuItem("Help", () => new HelpPage()));
-
             _chosenItemCmd = new Command(obj =>
             {
                 var handler = MenuItemChanged;
@@ -25,43 +20,38 @@ namespace Harvest_Loss
                 }
             });
 
-            var layout = new StackLayout { Spacing = 0, VerticalOptions = LayoutOptions.FillAndExpand };
+            _menuItems = new List<MenuItem>();
+            _menuItems.Add(new MenuItem("Main", () => new CalcPage()));
+            _menuItems.Add(new MenuItem("About", () => new AboutPage()));
+            _menuItems.Add(new MenuItem("Help", () => new HelpPage()));
 
-            var menuList = new ListView
-            {
-                ItemsSource = menuItems,
-                VerticalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Color.Transparent,
-            };
+            InitializeComponent();
 
-            var cell = new DataTemplate(typeof(TextCell));
-            cell.SetBinding(TextCell.TextProperty, "MenuTitle");
-            cell.SetValue(VisualElement.BackgroundColorProperty, Color.Transparent);
-
-            menuList.ItemTemplate = cell;
-
-            menuList.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
+            _menuList.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
             {
                 if (e.SelectedItem != null)
                 {
                     var mi = (MenuItem)e.SelectedItem;
-                    menuList.SelectedItem = null;
+                    _menuList.SelectedItem = null;
                     _chosenItemCmd.Execute(mi);
                 }
             };
 
-            layout.Children.Add(menuList);
 
-            Content = layout;
         }
 
-        List<MenuItem> menuItems;
+        List<MenuItem> _menuItems;
+
+        public List<MenuItem> MenuItems
+        {
+            get { return _menuItems; }
+        }
 
         public Page DefaultPage
         {
             get
             {
-                return menuItems[0].NaviPage;
+                return MenuItems[0].NaviPage;
             }
         }
 
