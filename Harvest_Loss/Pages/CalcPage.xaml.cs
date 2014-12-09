@@ -25,11 +25,28 @@ namespace Harvest_Loss
                 Navigation.PushAsync(new CropList());
             };
 
+            if (Device.OS == TargetPlatform.Android)
+            {
+                var a = (Grid)_mainGrid;
 
+                foreach (var v in a.Children)
+                {
+                    var lbl = v as Label;
+                    if (lbl != null)
+                    {
+                        lbl.Font = Font.SystemFontOfSize(NamedSize.Large);
+                        lbl.TextColor = Color.White;
+                        if (lbl.Text == "Inputs" || lbl.Text == "Results")
+                        {
+                            lbl.Font = Font.SystemFontOfSize(NamedSize.Large, FontAttributes.Bold);
+                        }
+                    }
+                }
+            }
         }
     }
 
-    public class DoneEntryCell : EntryCell
+    public class DoneEntry : Entry
     {
     }
 }

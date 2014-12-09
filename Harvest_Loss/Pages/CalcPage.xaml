@@ -8,135 +8,58 @@
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	<ContentPage.Content>
-		<TableView Intent="Form">
-			<TableSection Title="Input">
-				<ViewCell>
-					<StackLayout Orientation="Horizontal">
-						<StackLayout.Padding>
-							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</StackLayout.Padding>
-						<Label Text="Method" VerticalOptions="Center" Font="Large" TextColor="White">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-						<Picker x:Name="_methodPicker" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
-					</StackLayout>
-				</ViewCell>
-				<ViewCell>
-					<StackLayout Orientation="Horizontal">
-						<StackLayout.Padding>
-							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</StackLayout.Padding>
-						<Label Text="Crop" VerticalOptions="Center" Font="Large" TextColor="White" />
-						<Button x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" HorizontalOptions="FillAndExpand" />
-					</StackLayout>
-				</ViewCell>
-				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Cut width (ft)" Text="{Binding CutWidth, Converter={StaticResource nullableToStrCov}}" />
-				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Sieve width (in)" Text="{Binding SieveWidth, Converter={StaticResource nullableToStrCov}}" />
-				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Collecting area (sq ft)" Text="{Binding CollectingArea, Converter={StaticResource nullableToStrCov}}" />
-				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Expected yield (bu/acre)" Text="{Binding ExpectedYield, Converter={StaticResource nullableToStrCov}}" />
-				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="Price ($/bu)" Text="{Binding Price, Converter={StaticResource nullableToStrCov}}" />
-				<local:DoneEntryCell XAlign="End" Keyboard="Numeric" Label="{Binding CurrMethod, Converter={StaticResource currMethodToUnitCov}, StringFormat='Seed loss ({0})'}" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}" />
-			</TableSection>
-			<TableSection Title="Results">
-				<ViewCell>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="100" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<Grid.Padding>
-							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</Grid.Padding>
-						<Label Text="Loss per acre (lbs):" Font="Large" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-						<Label Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-					</Grid>
-				</ViewCell>
-				<ViewCell>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="100" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<Grid.Padding>
-							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</Grid.Padding>
-						<Label Text="Loss per acre (bu):" Font="Large" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-						<Label Text="{Binding LossPerAcreBu, StringFormat='{0:F2}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-					</Grid>
-				</ViewCell>
-				<ViewCell>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="100" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<Grid.Padding>
-							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</Grid.Padding>
-						<Label Text="Loss (%):" Font="Large" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-						<Label Text="{Binding LossPercent, StringFormat='{0:P}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-					</Grid>
-				</ViewCell>
-				<ViewCell>
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="100" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<Grid.Padding>
-							<OnPlatform x:TypeArguments="Thickness" iOS="20, 0, 0, 0" Android="8, 0, 8, 0" />
-						</Grid.Padding>
-						<Label Text="Loss value ($/acre):" Font="Large" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-						<Label Text="{Binding LossValue, StringFormat='{0:C}', Mode=OneWay}" Grid.Column="1" Font="Large" XAlign="End" YAlign="Center">
-							<Label.TextColor>
-								<OnPlatform x:TypeArguments="Color" Android="White" />
-							</Label.TextColor>
-						</Label>
-					</Grid>
-				</ViewCell>
-			</TableSection>
-		</TableView>
+		<ScrollView>
+			<Grid x:Name="_mainGrid">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="100" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.Padding>
+					<OnPlatform x:TypeArguments="Thickness" iOS="8, 0, 8, 20" Android="8, 0, 8, 0" />
+				</Grid.Padding>
+				<Label Text="Inputs" VerticalOptions="Center" />
+				<Label Grid.Row="1" Text="Method" VerticalOptions="Center" />
+				<Picker Grid.Row="1" x:Name="_methodPicker" Grid.Column="1" Title="Method" SelectedIndex="{Binding CurrMethod, Converter={StaticResource methodToPIdxCov}}" VerticalOptions="Center" HorizontalOptions="FillAndExpand" />
+				<Label Grid.Row="2" Text="Crop" VerticalOptions="Center" />
+				<Button Grid.Row="2" Grid.Column="1" x:Name="_cropPicker" Text="{Binding CurrCrop.Name}" HorizontalOptions="FillAndExpand" />
+				<Label Grid.Row="3" Text="Cut width (ft)" VerticalOptions="Center" />
+				<Entry Grid.Row="3" Grid.Column="1" Text="{Binding CutWidth, Converter={StaticResource nullableToStrCov}}" Keyboard="Numeric" />
+				<Label Grid.Row="4" Text="Sieve width (in)" VerticalOptions="Center" />
+				<Entry Grid.Row="4" Grid.Column="1" Text="{Binding SieveWidth, Converter={StaticResource nullableToStrCov}}" Keyboard="Numeric" />
+				<Label Grid.Row="5" Text="Collecting area (sq ft)" VerticalOptions="Center" />
+				<Entry Grid.Row="5" Grid.Column="1" Text="{Binding CollectingArea, Converter={StaticResource nullableToStrCov}}" Keyboard="Numeric" />
+				<Label Grid.Row="6" Text="Expected yield (bu/acre)" VerticalOptions="Center" />
+				<Entry Grid.Row="6" Grid.Column="1" Text="{Binding ExpectedYield, Converter={StaticResource nullableToStrCov}}" Keyboard="Numeric" />
+				<Label Grid.Row="7" Text="Price ($/bu)" VerticalOptions="Center" />
+				<Entry Grid.Row="7" Grid.Column="1" Text="{Binding Price, Converter={StaticResource nullableToStrCov}}" Keyboard="Numeric" />
+				<Label Grid.Row="8" Text="{Binding CurrMethod, Converter={StaticResource currMethodToUnitCov}, StringFormat='Seed loss ({0})'}" VerticalOptions="Center" />
+				<Entry Grid.Row="8" Grid.Column="1" Text="{Binding SeedLoss, Converter={StaticResource nullableToStrCov}}" Keyboard="Numeric" />
+				<Label Grid.Row="9" Text="Results" VerticalOptions="Center" />
+				<Label Grid.Row="10" Text="Loss per acre (lbs):" YAlign="Center" />
+				<Label Grid.Row="10" Grid.Column="1" Text="{Binding LossPerAcreLbs, StringFormat='{0:F2}', Mode=OneWay}" XAlign="End" YAlign="Center" />
+				<Label Grid.Row="11" Text="Loss per acre (bu):" YAlign="Center" />
+				<Label Grid.Row="11" Grid.Column="1" Text="{Binding LossPerAcreBu, StringFormat='{0:F2}', Mode=OneWay}" XAlign="End" YAlign="Center" />
+				<Label Grid.Row="12" Text="Loss (%):" YAlign="Center" />
+				<Label Grid.Row="12" Grid.Column="1" Text="{Binding LossPercent, StringFormat='{0:P}', Mode=OneWay}" XAlign="End" YAlign="Center" />
+				<Label Grid.Row="13" Text="Loss value ($/acre):" YAlign="Center" />
+				<Label Grid.Row="13" Grid.Column="1" Text="{Binding LossValue, StringFormat='{0:C}', Mode=OneWay}" XAlign="End" YAlign="Center" />
+			</Grid>
+		</ScrollView>
 	</ContentPage.Content>
 </ContentPage>
